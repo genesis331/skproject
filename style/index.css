@@ -1,0 +1,31 @@
+body, html {
+    height: 100%;
+    width: 100%;
+}
+
+.login-center {
+    height: auto;
+    width: 100%;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+}
+
+.login-center h2, .login-center h3 {
+    margin: 0;
+    padding: 1rem 0;
+}
+
+.login-form {
+    margin-top: 4rem;
+}
+
+.zi-input {
+    height: 3rem;
+    width: 20rem;
+}
+
+.submitbtn-sec {
+    margin-top: 4rem;
+}
