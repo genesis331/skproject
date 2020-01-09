@@ -1,0 +1,8 @@
+.indi {
+    font-size: 1rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-140%);
+    width: 100%;
+    text-align: center;
+}
