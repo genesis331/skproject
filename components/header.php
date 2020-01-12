@@ -4,6 +4,8 @@
         width: 100%;
         display: grid;
         grid-template-columns: 80% 20%;
+        user-select: none;
+        z-index: 9;
     }
 
     .header-sec1 h3 {
@@ -20,14 +22,21 @@
         text-align: right;
     }
 
-    .header-sec2 img {
-        height: 2rem;
+    .zi-popover {
         position: relative;
         top: 50%;
         transform: translateY(-50%);
-        padding: 1rem;
-        margin-right: 2.5rem;
+        margin-right: 4rem;
+        z-index: 10;
+    }
+
+    .header-sec2 img {
+        height: 2rem;
         cursor: pointer;
+    }
+
+    .zi-popover-item {
+        width: auto;
     }
 </style>
 <div class="header-sec">
@@ -35,6 +44,18 @@
         <h3>Sistem Pengurusan Jualan Antik Antiqua</h3>
     </div>
     <div class="header-sec2">
-        <img src="../assets/images/menu.svg">
+        <div class="zi-popover">
+            <span class="zi-popover-host">
+                <img src="../assets/images/menu.svg">
+            </span>
+            <div class="zi-popover-dropdown right">
+                <div class="zi-popover-item">Tambah Pekerja</div>
+                <div class="zi-popover-item">Kemaskini Pekerja</div>
+                <div class="zi-popover-item">Semak Stok</div>
+                <div class="zi-popover-item">Rekod Jualan</div>
+                <div class="zi-popover-item">Papar Jualan</div>
+            </div>
+        </div>
+    </div>
     </div>
 </div>
