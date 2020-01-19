@@ -1,7 +1,6 @@
 <?php
     require('./functions/dbcon.php');
     session_start();
-
     if (isset($_POST['idpengguna'])) {
         $userid = $_POST['idpengguna'];
         $userpw = $_POST['katalaluan'];

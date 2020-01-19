@@ -1,6 +1,7 @@
 body, html {
     height: 100%;
     width: 100%;
+    font-family: "Volte" !important;
 }
 
 .main-content {
@@ -12,4 +13,15 @@ body, html {
 @font-face {
     font-family: "Volte";
     src: url("../assets/fonts/Volte.otf");
+}
+
+@font-face {
+    font-family: "Volte Bold";
+    src: url("../assets/fonts/Volte\ Bold.otf");
+}
+
+.title {
+    font-size: 1.8rem;
+    font-family: "Volte Bold";
+    margin: 1rem 8rem;
 }

@@ -1,0 +1,33 @@
+.adduser-content {
+    margin: 3rem 14rem;
+}
+
+.zi-input {
+    height: 4rem;
+    width: 30rem;
+    font-size: 1.1rem;
+}
+
+.login-form {
+    display: grid;
+    grid-template-columns: 30rem auto;
+}
+
+.zi-input-group {
+    margin: 1rem 0;
+}
+
+.submitbtn {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 15rem;
+}
+
+.importbtn-sec {
+    margin: 4rem 8rem;
+}
+
+.importbtn {
+    margin-left: 2rem;
+}
