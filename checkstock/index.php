@@ -32,6 +32,19 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <?php
+                        $data = mysqli_query(mysqli_connect("localhost","root","","antiquadb"),"SELECT * FROM antik"); 
+                        $no = 1;
+                        while ($info = mysqli_fetch_array($data)) {
+                    ?>
+                    <tr>
+                        <td><?php echo $info['namaantik'];?></td>
+                        <td><?php echo $info['idantik'];?></td>
+                        <td><?php echo $info['hargaantik'];?></td>
+                        <th><?php echo $info['penjelasanantik'];?></th>
+                        <td></td>
+                    </tr>
+                    <?php }?>
                 </tbody>
             </table>
             </div>
