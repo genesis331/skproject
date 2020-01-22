@@ -1,19 +1,18 @@
 <?php
     require('./functions/dbcon.php');
     session_start();
-    if (isset($_POST['idpengguna'])) {
-        $userid = $_POST['idpengguna'];
-        $userpw = $_POST['katalaluan'];
+    if (isset($_POST['namapekerja'])) {
+        $userid = $_POST['namapekerja'];
+        $userpw = $_POST['katalaluanpekerja'];
 
-        $dbquery = mysqli_query($dbcon,"SELECT * FROM pengguna WHERE idpengguna='$userid' AND katalaluan='$userpw'");
+        $dbquery = mysqli_query($dbcon,"SELECT * FROM pekerja WHERE namapekerja='$userid' AND katalaluanpekerja='$userpw'");
         $row = mysqli_fetch_assoc($dbquery);
 
-        if (mysqli_num_rows($dbquery) == 0 || $row['katalaluan'] != $userpw) {
+        if (mysqli_num_rows($dbquery) == 0 || $row['katalaluanpekerja'] != $userpw) {
             echo "<script>alert('ID pengguna atau kata laluan adalah salah.')</script>";
         } else {
-            $_SESSION['idpengguna'] = $row['idpengguna'];
-            $admin = $_SESSION['idpengguna'];
-
+            $_SESSION['namapekerja'] = $row['namapekerja'];
+            $admin = $_SESSION['namapekerja'];
             header("Location: ./main");
         }
     }
@@ -40,7 +39,7 @@
                     <span class="zi-label prefix">
                         <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" shape-rendering="geometricPrecision" style="color:var(--geist-foreground)"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                     </span>
-                    <input class="zi-input" placeholder="ID Pengguna" name="idpengguna" required>
+                    <input class="zi-input" placeholder="Nama Pengguna" name="namapekerja" required>
                 </div>
                 <br>
                 <br>
@@ -48,7 +47,7 @@
                     <span class="zi-label prefix">
                         <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" shape-rendering="geometricPrecision" style="color:var(--geist-foreground)"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 11-7.778 7.778 5.5 5.5 0 017.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>
                     </span>
-                    <input class="zi-input" type="password" placeholder="Kata Laluan" name="katalaluan" required>
+                    <input class="zi-input" type="password" placeholder="Kata Laluan" name="katalaluanpekerja" required>
                 </div>
                 <div class="submitbtn-sec">
                     <button class="zi-btn success">LOG MASUK</button>

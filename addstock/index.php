@@ -36,7 +36,7 @@
         <div class="title">
             Tambah Stok
         </div>
-        <div class="adduser-content">
+        <div class="addstock-content">
             <form class="login-form" method="POST" autocomplete="off">
                 <div>
                     <div class="zi-input-group prefix">
