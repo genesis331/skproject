@@ -81,6 +81,7 @@
             <div class="zi-popover-dropdown right" id="zi-popover-dropdown">
                 <a href="../adduser/"><div class="zi-popover-item">Tambah Pekerja</div></a>
                 <a href="../edituser/"><div class="zi-popover-item">Kemaskini Pekerja</div></a>
+                <a href="../addstock/"><div class="zi-popover-item">Tambah Stok</div></a>
                 <a href="../checkstock/"><div class="zi-popover-item">Semak Stok</div></a>
                 <a href="../addrecord/"><div class="zi-popover-item">Rekod Jualan</div></a>
                 <a href="../showrecord/"><div class="zi-popover-item">Papar Jualan</div></a>

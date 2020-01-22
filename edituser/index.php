@@ -31,6 +31,18 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <?php
+                        $data = mysqli_query(mysqli_connect("localhost","root","","antiquadb"),"SELECT * FROM pekerja"); 
+                        $no = 1;
+                        while ($info = mysqli_fetch_array($data)) {
+                    ?>
+                    <tr>
+                        <td><?php echo $info['namapekerja'];?></td>
+                        <td><?php echo $info['notelefonpekerja'];?></td>
+                        <td><?php echo $info['katalaluanpekerja'];?></td>
+                        <td></td>
+                    </tr>
+                    <?php }?>
                 </tbody>
             </table>
             </div>
