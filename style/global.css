@@ -23,5 +23,25 @@ body, html {
 .title {
     font-size: 1.8rem;
     font-family: "Volte Bold";
-    margin: 1rem 8rem;
+    margin: 2rem 8rem;
+}
+
+.title2 {
+    margin: 2rem 8rem;
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.title-select-sec-title {
+    margin-right: 1rem;
+    font-size: 1.1rem;
+}
+
+.title-display-sec {
+    font-size: 1.8rem;
+    font-family: "Volte Bold";
+}
+
+.title-select-sec {
+    text-align: right;
 }

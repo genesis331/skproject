@@ -61,9 +61,11 @@
         if (menuStatus) {
             menuStatus = false;
             document.getElementById('zi-popover-dropdown').classList.remove('active');
+            document.getElementById('menu-overlay').classList.remove('active');
         } else {
             menuStatus = true;
             document.getElementById('zi-popover-dropdown').classList.add('active');
+            document.getElementById('menu-overlay').classList.add('active');
         }
     }
 </script>

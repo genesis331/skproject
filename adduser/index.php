@@ -32,6 +32,7 @@
     </head>
     <body class="zi-main zi-dark-theme">
         <?php include("../components/header.php");?>
+        <?php include("../components/menuoverlay.php");?>
         <div class="title">
             Tambah Pekerja
         </div>
