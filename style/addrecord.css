@@ -1,0 +1,25 @@
+.addrecord-content {
+    margin: 3rem 14rem;
+}
+
+.zi-input {
+    height: 4rem;
+    width: 35rem;
+    font-size: 1.1rem;
+}
+
+.login-form {
+    display: grid;
+    grid-template-columns: 35rem auto;
+}
+
+.zi-input-group {
+    margin: 0.6rem 0;
+}
+
+.submitbtn {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 15rem;
+}

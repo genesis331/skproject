@@ -1,7 +1,6 @@
 <?php 
-    if (!(isset($_SESSION['idpengguna']))) {
+    if (!(isset($_SESSION['namapekerja']))) {
         session_destroy();
-
         header("Location: /");
     }
 ?>
