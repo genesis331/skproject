@@ -7,3 +7,8 @@
     display: inline-block;
     width: 80%;
 }
+
+.action-btn {
+    min-width: 6rem;
+    margin: 0 0.1rem
+}
