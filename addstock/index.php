@@ -39,19 +39,19 @@
         <div class="addstock-content">
             <form class="login-form" method="POST" autocomplete="off">
                 <div>
-                    <div class="zi-input-group prefix">
+                    <div class="zi-input-group">
                         <input class="zi-input" placeholder="Nama Antik" name="namaantik" required>
                     </div>
                     <br>
-                    <div class="zi-input-group prefix">
+                    <div class="zi-input-group">
                         <input class="zi-input" placeholder="Harga Antik" name="hargaantik" required>
                     </div>
                     <br>
-                    <div class="zi-input-group prefix">
+                    <div class="zi-input-group">
                         <input class="zi-input" placeholder="Tempat Asal" name="tempatasal" required>
                     </div>
                     <br>
-                    <div class="zi-input-group prefix">
+                    <div class="zi-input-group">
                         <input class="zi-input" placeholder="Deskripsi" name="deskripsi" required>
                     </div>
                 </div>

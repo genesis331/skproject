@@ -39,15 +39,15 @@
         <div class="adduser-content">
             <form class="login-form" method="POST" autocomplete="off">
                 <div>
-                    <div class="zi-input-group prefix">
+                    <div class="zi-input-group">
                         <input class="zi-input" placeholder="Nama Pekerja" name="namapekerja" required>
                     </div>
                     <br>
-                    <div class="zi-input-group prefix">
+                    <div class="zi-input-group">
                         <input class="zi-input" placeholder="Nombor Telefon Pekerja" name="notelefonpekerja" required type="tel">
                     </div>
                     <br>
-                    <div class="zi-input-group prefix">
+                    <div class="zi-input-group">
                         <input class="zi-input" placeholder="Kata Laluan Akaun Pekerja" name="katalaluan" required>
                     </div>
                 </div>

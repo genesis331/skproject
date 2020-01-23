@@ -22,19 +22,21 @@
         <div class="addrecord-content">
             <form class="login-form" method="POST" autocomplete="off">
                 <div>
-                    <div class="zi-input-group prefix">
+                    <div class="zi-input-group suffix">
                         <input class="zi-input" placeholder="Nama Antik" name="namaantik" required>
+                        <span class="zi-label suffix"><i class="zi-icon-plus"></i></span>
                     </div>
                     <br>
-                    <div class="zi-input-group prefix">
+                    <div class="zi-input-group">
                         <input class="zi-input" placeholder="Tarikh Jualan" name="tarikhjualan" required>
                     </div>
                     <br>
-                    <div class="zi-input-group prefix">
+                    <div class="zi-input-group suffix">
                         <input class="zi-input" placeholder="Nama Pembeli" name="namapembeli" required>
+                        <span class="zi-label suffix"><a href="../addbuyer"><i class="zi-icon-plus"></i></a></span>
                     </div>
                     <br>
-                    <div class="zi-input-group prefix">
+                    <div class="zi-input-group">
                         <input class="zi-input" disabled>
                     </div>
                 </div>
