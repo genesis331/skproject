@@ -1,4 +1,5 @@
 <?php 
+    require('../functions/dbcon.php');
     session_start();
     include ("../functions/authcheck.php");
 ?>
@@ -32,7 +33,7 @@
                 </thead>
                 <tbody>
                     <?php
-                        $data = mysqli_query(mysqli_connect("localhost","root","","antiquadb"),"SELECT * FROM pekerja"); 
+                        $data = mysqli_query($dbcon,"SELECT * FROM pekerja"); 
                         $no = 0;
                         while ($info = mysqli_fetch_array($data)) {
                     ?>
@@ -40,17 +41,19 @@
                         <td><?php echo $info['namapekerja'];?></td>
                         <td><?php echo $info['notelefonpekerja'];?></td>
                         <td><?php echo $info['katalaluanpekerja'];?></td>
-                        <td><a href="../edituserfun/index.php?index=<?php echo $info['idpekerja'];?>"><button class="zi-btn action-btn">KEMASKINI</button></a><a href="../functions/hapuspekerja.php?index=<?php echo $info['idpekerja'];?>"><button class="zi-btn action-btn">HAPUS</button></a></td>
+                        <td>
+                            <a href="../edituserfun/index.php?index=<?php echo $info['idpekerja'];?>">
+                                <button class="zi-btn action-btn">KEMASKINI</button>
+                            </a>
+                            <a href="../functions/hapuspekerja.php?index=<?php echo $info['idpekerja'];?>">
+                                <button class="zi-btn action-btn">HAPUS</button>
+                            </a>
+                        </td>
                     </tr>
                     <?php $no++; }?>
                 </tbody>
             </table>
             </div>
         </div>
-        <script>
-            function editTarget(target) {
-                console.log(target);
-            }
-        </script>
     </body>
 </html>

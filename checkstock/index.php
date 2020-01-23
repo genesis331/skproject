@@ -1,4 +1,5 @@
 <?php 
+    require('../functions/dbcon.php');
     session_start();
     include ("../functions/authcheck.php");
 ?>
@@ -33,7 +34,7 @@
                 </thead>
                 <tbody>
                     <?php
-                        $data = mysqli_query(mysqli_connect("localhost","root","","antiquadb"),"SELECT * FROM antik"); 
+                        $data = mysqli_query($dbcon,"SELECT * FROM antik"); 
                         $no = 1;
                         while ($info = mysqli_fetch_array($data)) {
                     ?>
@@ -42,7 +43,14 @@
                         <td><?php echo $info['idantik'];?></td>
                         <td><?php echo $info['hargaantik'];?></td>
                         <th><?php echo $info['penjelasanantik'];?></th>
-                        <td><a href="../editstockfun/index.php?index=<?php echo $info['idantik'];?>"><button class="zi-btn action-btn">KEMASKINI</button></a><a href="../functions/hapusantik.php?index=<?php echo $info['idantik'];?>"><button class="zi-btn action-btn">HAPUS</button></a></td>
+                        <td>
+                            <a href="../editstockfun/index.php?index=<?php echo $info['idantik'];?>">
+                                <button class="zi-btn action-btn">KEMASKINI</button>
+                            </a>
+                            <a href="../functions/hapusantik.php?index=<?php echo $info['idantik'];?>">
+                                <button class="zi-btn action-btn">HAPUS</button>
+                            </a>
+                        </td>
                     </tr>
                     <?php }?>
                 </tbody>
