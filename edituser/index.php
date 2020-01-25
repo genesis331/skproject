@@ -22,37 +22,36 @@
         </div>
         <div class="table-sec">
             <div class="table-container">
-            <table class="zi-table data-table">
-                <thead>
-                    <tr>
-                        <th>NAME PEKERJA</th>
-                        <th>NO TELEFON PEKERJA</th>
-                        <th>KATA LALUAN</th>
-                        <th>TINDAKAN</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                        $data = mysqli_query($dbcon,"SELECT * FROM pekerja"); 
-                        $no = 0;
-                        while ($info = mysqli_fetch_array($data)) {
-                    ?>
-                    <tr>
-                        <td><?php echo $info['namapekerja'];?></td>
-                        <td><?php echo $info['notelefonpekerja'];?></td>
-                        <td><?php echo $info['katalaluanpekerja'];?></td>
-                        <td>
-                            <a href="../edituserfun/index.php?index=<?php echo $info['idpekerja'];?>">
-                                <button class="zi-btn action-btn">KEMASKINI</button>
-                            </a>
-                            <a href="../functions/hapuspekerja.php?index=<?php echo $info['idpekerja'];?>">
-                                <button class="zi-btn action-btn">HAPUS</button>
-                            </a>
-                        </td>
-                    </tr>
-                    <?php $no++; }?>
-                </tbody>
-            </table>
+                <table class="zi-table data-table">
+                    <thead>
+                        <tr>
+                            <th>NAME PEKERJA</th>
+                            <th>NO TELEFON PEKERJA</th>
+                            <th>KATA LALUAN</th>
+                            <th>TINDAKAN</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                            $data = mysqli_query($dbcon,"SELECT * FROM pekerja"); 
+                            while ($info = mysqli_fetch_array($data)) {
+                        ?>
+                        <tr>
+                            <td><?php echo $info['namapekerja'];?></td>
+                            <td><?php echo $info['notelefonpekerja'];?></td>
+                            <td><?php echo $info['katalaluanpekerja'];?></td>
+                            <td>
+                                <a href="../edituserfun/index.php?index=<?php echo $info['idpekerja'];?>">
+                                    <button class="zi-btn action-btn">KEMASKINI</button>
+                                </a>
+                                <a href="../functions/hapuspekerja.php?index=<?php echo $info['idpekerja'];?>">
+                                    <button class="zi-btn action-btn">HAPUS</button>
+                                </a>
+                            </td>
+                        </tr>
+                        <?php }?>
+                    </tbody>
+                </table>
             </div>
         </div>
     </body>

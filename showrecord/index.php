@@ -45,20 +45,20 @@
         </div>
         <div class="table-sec">
             <div class="table-container">
-            <table class="zi-table data-table">
-                <thead>
-                    <tr>
-                        <th>ID JUALAN</th>
-                        <th>NAMA PEMBELI</th>
-                        <th>AMAUN DIBAYAR</th>
-                        <th>TARIKH JUALAN</th>
-                        <th>NAMA PENJUAL</th>
-                        <th>TINDAKAN</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
+                <table class="zi-table data-table">
+                    <thead>
+                        <tr>
+                            <th>ID JUALAN</th>
+                            <th>NAMA PEMBELI</th>
+                            <th>AMAUN DIBAYAR</th>
+                            <th>TARIKH JUALAN</th>
+                            <th>NAMA PENJUAL</th>
+                            <th>TINDAKAN</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
             </div>
         </div>
     </body>
