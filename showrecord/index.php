@@ -14,6 +14,9 @@
         <link rel="stylesheet" href="../style/showrecord.css">
     </head>
     <body class="zi-main zi-dark-theme">
+        <script>
+            let jualandata;
+        </script>
         <?php include("../components/header.php");?>
         <?php include("../components/menuoverlay.php");?>
         <div class="title2">
@@ -24,23 +27,25 @@
                 <span class="title-select-sec-title">
                     Bulan Jualan
                 </span>
+                <form method="POST" class="form-sec">
                 <div class="zi-select-container">
-                    <select class="zi-select">
-                        <option>Januari</option>
-                        <option>Februari</option>
-                        <option>Mac</option>
-                        <option>April</option>
-                        <option>Mei</option>
-                        <option>Jun</option>
-                        <option>Julai</option>
-                        <option>Ogos</option>
-                        <option>September</option>
-                        <option>Oktober</option>
-                        <option>November</option>
-                        <option>Disember</option>
+                    <select class="zi-select" name="month-selection" id="month-selection" onChange="updateDisplay(jualandata);">
+                        <option value="01">Januari</option>
+                        <option value="02">Februari</option>
+                        <option value="03">Mac</option>
+                        <option value="04">April</option>
+                        <option value="05">Mei</option>
+                        <option value="06">Jun</option>
+                        <option value="07">Julai</option>
+                        <option value="08">Ogos</option>
+                        <option value="09">September</option>
+                        <option value="10">Oktober</option>
+                        <option value="11">November</option>
+                        <option value="12">Disember</option>
                     </select>
                     <i class="arrow zi-icon-up"></i>
                 </div>
+                </form>
             </div>
         </div>
         <div class="table-sec">
@@ -56,20 +61,44 @@
                             <th>TINDAKAN</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="tbody">
+                        <script>
+                            function updateDisplay(data) {
+                                document.getElementById('tbody').innerHTML = "";
+                                jualandata = data;
+                                for (let i = 0; i <= data.length - 1; i++) {
+                                    if (parseInt(data[i]['tarikhjualan'].split('-')[1]) == parseInt(document.getElementById('month-selection').value)) {
+                                        let elem = document.createElement('tr');
+                                        elem1 = document.createElement('td');
+                                        elem1.innerHTML = data[i]['idjualan'];
+                                        elem.appendChild(elem1);
+                                        elem2 = document.createElement('td');
+                                        elem2.innerHTML = data[i]['idpembeli'];
+                                        elem.appendChild(elem2);
+                                        elem3 = document.createElement('td');
+                                        elem3.innerHTML = data[i]['jumlahjualan'];
+                                        elem.appendChild(elem3);
+                                        elem4 = document.createElement('td');
+                                        elem4.innerHTML = data[i]['tarikhjualan'];
+                                        elem.appendChild(elem4);
+                                        elem5 = document.createElement('td');
+                                        elem5.innerHTML = data[i]['idpekerja'];
+                                        elem.appendChild(elem5);
+                                        elem6 = document.createElement('td');
+                                        elem.appendChild(elem6);
+                                        document.getElementById('tbody').appendChild(elem);
+                                    }
+                                }
+                            }
+                        </script>
                         <?php
-                            $data = mysqli_query(mysqli_connect("localhost","root","","antiquadb"),"SELECT * FROM jualan"); 
+                            $data = mysqli_query(mysqli_connect("localhost","root","","antiquadb"),"SELECT * FROM jualan");
                             while ($info = mysqli_fetch_array($data)) {
+                                $result[] = $info;
+                            }
+                            $jsdata = json_encode($result);
+                            echo "<script>updateDisplay($jsdata)</script>";
                         ?>
-                        <tr>
-                            <td><?php echo $info['idjualan'];?></td>
-                            <td><?php echo $info['idpembeli'];?></td>
-                            <td><?php echo $info['jumlahjualan'];?></td>
-                            <td><?php echo $info['tarikhjualan'];?></td>
-                            <td><?php echo $info['idpekerja'];?></td>
-                            <td></td>
-                        </tr>
-                        <?php }?>
                     </tbody>
                 </table>
             </div>
