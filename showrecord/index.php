@@ -57,6 +57,19 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <?php
+                            $data = mysqli_query(mysqli_connect("localhost","root","","antiquadb"),"SELECT * FROM jualan"); 
+                            while ($info = mysqli_fetch_array($data)) {
+                        ?>
+                        <tr>
+                            <td><?php echo $info['idjualan'];?></td>
+                            <td><?php echo $info['idpembeli'];?></td>
+                            <td><?php echo $info['jumlahjualan'];?></td>
+                            <td><?php echo $info['tarikhjualan'];?></td>
+                            <td><?php echo $info['idpekerja'];?></td>
+                            <td></td>
+                        </tr>
+                        <?php }?>
                     </tbody>
                 </table>
             </div>

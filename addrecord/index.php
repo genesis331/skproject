@@ -44,9 +44,10 @@
                                 <?php
                                     $data = mysqli_query(mysqli_connect("localhost","root","","antiquadb"),"SELECT * FROM antik");
                                     while ($info = mysqli_fetch_array($data)) {
+                                        if ($info['status'] != 0) {
                                 ?>
                                 <option value="<?php echo $info['idantik'];?>"><?php echo $info['namaantik'];?></option>
-                                <?php }?>
+                                <?php }}?>
                             </select>
                             <i class="arrow zi-icon-up"></i>
                         </div>

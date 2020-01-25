@@ -8,15 +8,30 @@
                 $tempnum = rand(0,9);
                 $tempid = $tempid . $tempnum;
             }
-            // $result = mysqli_query(mysqli_connect("localhost","root","","antiquadb"), "SELECT * FROM pekerja WHERE idpekerja='$tempid'");
-            // if (mysqli_num_rows($result)) {
-            //     generateID();
-            // } else {
-            //     $result = mysqli_query(mysqli_connect("localhost","root","","antiquadb"), "INSERT INTO pekerja (idpekerja,namapekerja,notelefonpekerja,katalaluanpekerja) values ('$tempid','$nama','$notelefon','$katalaluan')");
-            //     header("Location: ./");
-            // }
+            $result = mysqli_query(mysqli_connect("localhost","root","","antiquadb"), "SELECT * FROM jualan WHERE idjualan='$tempid'");
+            if (mysqli_num_rows($result)) {
+                generateID();
+            } else {
+                return $tempid;
+            }
         }
-        // generateID();
+        function insertDB() {
+            $date = $_GET['tarikh'];
+            $pembeli = $_GET['pembeli'];
+            $penjual = $_SESSION['idpekerja'];
+            $antik = explode(',',$_GET['antik']);
+            for($a = 0; $a <= count($antik) - 1; $a++) {
+                $target = $antik[$a];
+                $data = mysqli_query(mysqli_connect("localhost","root","","antiquadb"),"SELECT * FROM antik WHERE idantik='$target'");
+                $output = mysqli_fetch_array($data);
+                $harga = $output['hargaantik'];
+                $tempid = generateID();
+                mysqli_query(mysqli_connect("localhost","root","","antiquadb"), "INSERT INTO jualan (idjualan,jumlahjualan,tarikhjualan,idpembeli,idpekerja,idantik) values ('$tempid','$harga','$date','$pembeli','$penjual','$antik[$a]')");
+                $data1 = mysqli_query(mysqli_connect("localhost","root","","antiquadb"),"UPDATE antik SET status='0' WHERE idantik='$antik[$a]'");
+            }
+            header("Location: ../addrecord");
+        }
+        insertDB();
     }
 ?>
 <!DOCTYPE html>
@@ -38,66 +53,86 @@
         </div>
         <div class="table-sec">
             <div class="table-container">
-            <table class="zi-table data-table">
-                <thead>
-                    <tr>
-                        <th>TARIKH JUALAN</th>
-                        <th>BARANG ANTIK</th>
-                        <th>HARGA BARANG</th>
-                        <th>NAMA PEMBELI</th>
-                        <th>NAMA PEKERJA</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <?php echo $_GET['tarikh']?>
-                        </td>
-                        <td>
-                            <?php
-                                $antik = explode(',',$_GET['antik']);
-                                for($i = 0; $i <= count($antik) - 1; $i++) {
-                                    $target = $antik[$i];
-                                    $data = mysqli_query(mysqli_connect("localhost","root","","antiquadb"),"SELECT * FROM antik WHERE idantik='$target'");
+                <table class="zi-table data-table">
+                    <thead>
+                        <tr>
+                            <th>TARIKH JUALAN</th>
+                            <th>BARANG ANTIK</th>
+                            <th>HARGA BARANG</th>
+                            <th>NAMA PEMBELI</th>
+                            <th>NAMA PEKERJA</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <?php echo $_GET['tarikh']?>
+                            </td>
+                            <td>
+                                <?php
+                                    $antik = explode(',',$_GET['antik']);
+                                    for($i = 0; $i <= count($antik) - 1; $i++) {
+                                        $target = $antik[$i];
+                                        $data = mysqli_query(mysqli_connect("localhost","root","","antiquadb"),"SELECT * FROM antik WHERE idantik='$target'");
+                                        $output = mysqli_fetch_array($data);
+                                        $index = $i + 1;
+                                        echo "$index. " . $output['namaantik'] . " (" . $output['idantik'] . ")" . "<br>";
+                                    }
+                                ?>
+                            </td>
+                            <td>
+                                <?php
+                                    $antik = explode(',',$_GET['antik']);
+                                    for($i = 0; $i <= count($antik) - 1; $i++) {
+                                        $target = $antik[$i];
+                                        $data = mysqli_query(mysqli_connect("localhost","root","","antiquadb"),"SELECT * FROM antik WHERE idantik='$target'");
+                                        $output = mysqli_fetch_array($data);
+                                        echo "RM " . $output['hargaantik'] . "<br>";
+                                    }
+                                ?>
+                            </td>
+                            <td>
+                                <?php
+                                    $target = $_GET['pembeli'];
+                                    $data = mysqli_query(mysqli_connect("localhost","root","","antiquadb"),"SELECT * FROM pembeli WHERE idpembeli='$target'");
                                     $output = mysqli_fetch_array($data);
-                                    $index = $i + 1;
-                                    echo "$index. " . $output['namaantik'] . " (" . $output['idantik'] . ")" . "<br>";
-                                }
-                            ?>
-                        </td>
-                        <td>
-                            <?php
-                                // $sum = 0;
-                                $antik = explode(',',$_GET['antik']);
-                                for($i = 0; $i <= count($antik) - 1; $i++) {
-                                    $target = $antik[$i];
-                                    $data = mysqli_query(mysqli_connect("localhost","root","","antiquadb"),"SELECT * FROM antik WHERE idantik='$target'");
+                                    echo $output['namapembeli'];
+                                ?>
+                            </td>
+                            <td>
+                                <?php 
+                                    $target = $_SESSION['idpekerja'];
+                                    $data = mysqli_query(mysqli_connect("localhost","root","","antiquadb"),"SELECT * FROM pekerja WHERE idpekerja='$target'");
                                     $output = mysqli_fetch_array($data);
-                                    echo "RM " . $output['hargaantik'] . "<br>";
-                                    // $sum = $sum + intval($output['hargaantik']);
-                                }
-                                // echo "RM " . $sum;
-                            ?>
-                        </td>
-                        <td>
-                            <?php
-                                $target = $_GET['pembeli'];
-                                $data = mysqli_query(mysqli_connect("localhost","root","","antiquadb"),"SELECT * FROM pembeli WHERE idpembeli='$target'");
+                                    echo $output['namapekerja'];
+                                ?>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="confirm-sec">
+                <div class="jumlah-sec">
+                    Jumlah Bayaran: 
+                    <span>
+                        <?php
+                            $sum = 0;
+                            $antik = explode(',',$_GET['antik']);
+                            for($i = 0; $i <= count($antik) - 1; $i++) {
+                                $target = $antik[$i];
+                                $data = mysqli_query(mysqli_connect("localhost","root","","antiquadb"),"SELECT * FROM antik WHERE idantik='$target'");
                                 $output = mysqli_fetch_array($data);
-                                echo $output['namapembeli'];
-                            ?>
-                        </td>
-                        <td>
-                            <?php 
-                                $target = $_SESSION['idpekerja'];
-                                $data = mysqli_query(mysqli_connect("localhost","root","","antiquadb"),"SELECT * FROM pekerja WHERE idpekerja='$target'");
-                                $output = mysqli_fetch_array($data);
-                                echo $output['namapekerja'];
-                            ?>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                                $sum = $sum + $output['hargaantik'];
+                            }
+                            echo "RM " . $sum;
+                        ?>
+                    </span>
+                </div>
+                <form method="POST" class="submit-form">
+                    <div class="submit-sec">
+                        <button class="zi-btn confirm-btn success" name="submit">TAMBAH REKOD</button>
+                    </div>
+                </form>
             </div>
         </div>
     </body>
