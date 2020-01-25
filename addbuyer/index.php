@@ -1,6 +1,24 @@
 <?php 
     session_start();
     include ("../functions/authcheck.php");
+    if (isset($_POST['nama'])) {
+        function generateID($nama,$nokadic,$notelefon,$alamat,$negeri,$bandar,$poskod) {
+            $tempid = "B";
+            for($i = 0; $i < 5; $i++) {
+                $tempnum = rand(0,9);
+                $tempid = $tempid . $tempnum;
+            }
+            $result = mysqli_query(mysqli_connect("localhost","root","","antiquadb"), "SELECT * FROM pembeli WHERE idpembeli='$tempid'");
+            if (mysqli_num_rows($result)) {
+                generateID();
+            } else {
+                mysqli_query(mysqli_connect("localhost","root","","antiquadb"), "INSERT INTO alamat (alamat,negeri,poskod,bandar) values ('$alamat','$negeri','$poskod','$bandar')");
+                mysqli_query(mysqli_connect("localhost","root","","antiquadb"), "INSERT INTO pembeli (idpembeli,nokadicpembeli,notelefonpembeli,namapembeli,alamat) values ('$tempid','$nokadic','$notelefon','$nama','$alamat')");
+                header("Location: ../addrecord");
+            }
+        }
+        generateID($_POST['nama'],$_POST['nokadic'],$_POST['notelefon'],$_POST['alamat'],$_POST['negeri'],$_POST['bandar'],$_POST['poskod']);
+    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -23,23 +41,23 @@
             <form class="login-form" method="POST" autocomplete="off">
                 <div>
                     <div class="zi-input-group">
-                        <input class="zi-input" placeholder="Nama Pembeli" name="namaantik" required>
+                        <input class="zi-input" placeholder="Nama Pembeli" name="nama" required>
                     </div>
                     <br>
                     <div class="zi-input-group">
-                        <input class="zi-input" placeholder="No Kad IC Pembeli" name="tarikhjualan" required>
+                        <input class="zi-input" placeholder="No Kad IC Pembeli" name="nokadic" required>
                     </div>
                     <br>
                     <div class="zi-input-group">
-                        <input class="zi-input" placeholder="No Telefon Pembeli" name="namapembeli" required>
+                        <input class="zi-input" placeholder="No Telefon Pembeli" name="notelefon" required>
                     </div>
                     <br>
                     <div class="zi-input-group">
-                        <input class="zi-input" placeholder="Alamat Rumah" name="namapembeli" required>
+                        <input class="zi-input" placeholder="Alamat Rumah" name="alamat" required>
                     </div>
                     <br>
                     <div class="zi-select-container">
-                        <select class="zi-select" id="negeri-selection" onchange="updateBandar();">
+                        <select class="zi-select" id="negeri-selection" name="negeri" onchange="updateBandar();">
                             <option value="PAHANG">PAHANG</option>
                             <option value="PERAK">PERAK</option>
                             <option value="TERENGGANU">TERENGGANU</option>
@@ -57,11 +75,11 @@
                         <i class="arrow zi-icon-up"></i>
                     </div>
                     <div class="zi-select-container">
-                        <select class="zi-select" id="bandar-selection"></select>
+                        <select class="zi-select" name="bandar" id="bandar-selection"></select>
                         <i class="arrow zi-icon-up"></i>
                     </div>
                     <div class="zi-input-group address-input-group">
-                        <input class="zi-input address-input" placeholder="Poskod" name="namapembeli" required>
+                        <input class="zi-input address-input" placeholder="Poskod" name="poskod" required>
                     </div>
                 </div>
                 <div>

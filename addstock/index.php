@@ -12,7 +12,7 @@
             if (mysqli_num_rows($result)) {
                 generateID();
             } else {
-                $result = mysqli_query(mysqli_connect("localhost","root","","antiquadb"), "INSERT INTO antik (idantik,namaantik,hargaantik,penjelasanantik,tempatasalantik) values ('$tempid','$nama','$harga','$deskripsi', '$tempatasal')");
+                $set1 = mysqli_query(mysqli_connect("localhost","root","","antiquadb"), "INSERT INTO antik (idantik,namaantik,hargaantik,penjelasanantik,tempatasalantik) values ('$tempid','$nama','$harga','$deskripsi', '$tempatasal')");
                 header("Location: ./");
             }
         }

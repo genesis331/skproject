@@ -11,8 +11,8 @@
         if (mysqli_num_rows($dbquery) == 0 || $row['katalaluanpekerja'] != $userpw) {
             echo "<script>alert('ID pengguna atau kata laluan adalah salah.')</script>";
         } else {
-            $_SESSION['namapekerja'] = $row['namapekerja'];
-            $admin = $_SESSION['namapekerja'];
+            $_SESSION['idpekerja'] = $row['idpekerja'];
+            $admin = $_SESSION['idpekerja'];
             header("Location: ./main");
         }
     }

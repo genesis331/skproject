@@ -1,0 +1,14 @@
+.table-sec {
+    width: 100%;
+    text-align: center;
+}
+
+.table-container {
+    display: inline-block;
+    width: 80%;
+}
+
+.action-btn {
+    min-width: 6rem;
+    margin: 0.1rem;
+}

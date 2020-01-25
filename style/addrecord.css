@@ -13,7 +13,13 @@
     grid-template-columns: 35rem auto;
 }
 
-.zi-input-group {
+.zi-select-container {
+    height: 4rem;
+    width: 35rem;
+    font-size: 1.1rem;
+}
+
+.zi-input-group,.zi-select-container {
     margin: 0.6rem 0;
 }
 
@@ -22,4 +28,12 @@
     top: 50%;
     transform: translateY(-50%);
     margin-left: 15rem;
+}
+
+.add-buyer-btn {
+    min-width: 5rem;
+}
+
+.extra-btn {
+    margin-top: 3rem;
 }
