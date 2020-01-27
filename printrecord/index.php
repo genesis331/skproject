@@ -11,9 +11,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../node_modules/@zeit-ui/style/dist/style.css">
         <link rel="stylesheet" href="../style/global.css">
-        <link rel="stylesheet" href="../style/showrecord.css">
+        <link rel="stylesheet" href="../style/printrecord.css">
     </head>
-    <body class="zi-main zi-dark-theme">
+    <body class="zi-main">
         <script>
             let jualandata;
             let pekerjadata;
@@ -23,31 +23,25 @@
         <?php include("../components/menuoverlay.php");?>
         <div class="title2">
             <div class="title-display-sec">
-                Papar Jualan
-            </div>
-            <div class="title-select-sec">
-                <span class="title-select-sec-title">
-                    Bulan Jualan
+                LAPORAN BULANAN SISTEM PENGURUSAN JUALAN ANTIK ANTIQUA - 
+                <span>
+                    <?php
+                        switch($_GET['targetmonth']) {
+                            case "01" : echo "JANUARI"; break;
+                            case "02" : echo "FEBRUARI"; break;
+                            case "03" : echo "MAC"; break;
+                            case "04" : echo "APRIL"; break;
+                            case "05" : echo "MEI"; break;
+                            case "06" : echo "JUN"; break;
+                            case "07" : echo "JULAI"; break;
+                            case "08" : echo "OGOS"; break;
+                            case "09" : echo "SEPTEMBER"; break;
+                            case "10" : echo "OKTOBER"; break;
+                            case "11" : echo "NOVEMBER"; break;
+                            case "12" : echo "DISEMBER"; break;
+                        } 
+                    ?>
                 </span>
-                <form method="POST" class="form-sec">
-                <div class="zi-select-container">
-                    <select class="zi-select" name="month-selection" id="month-selection" onChange="updateDisplay(jualandata,pekerjadata,pembelidata);">
-                        <option value="01">Januari</option>
-                        <option value="02">Februari</option>
-                        <option value="03">Mac</option>
-                        <option value="04">April</option>
-                        <option value="05">Mei</option>
-                        <option value="06">Jun</option>
-                        <option value="07">Julai</option>
-                        <option value="08">Ogos</option>
-                        <option value="09">September</option>
-                        <option value="10">Oktober</option>
-                        <option value="11">November</option>
-                        <option value="12">Disember</option>
-                    </select>
-                    <i class="arrow zi-icon-up"></i>
-                </div>
-                </form>
             </div>
         </div>
         <div class="table-sec">
@@ -70,7 +64,7 @@
                                 pekerjadata = data1;
                                 pembelidata = data2;
                                 for (let i = 0; i <= data.length - 1; i++) {
-                                    if (parseInt(data[i]['tarikhjualan'].split('-')[1]) == parseInt(document.getElementById('month-selection').value)) {
+                                    if (parseInt(data[i]['tarikhjualan'].split('-')[1]) == parseInt(<?php echo $_GET['targetmonth']?>)) {
                                         let elem = document.createElement('tr');
                                         elem1 = document.createElement('td');
                                         elem1.innerHTML = data[i]['idjualan'];
@@ -121,16 +115,12 @@
                         ?>
                     </tbody>
                 </table>
-                <div class="print-btn-sec">
-                    <script>
-                        function jumpToPrint() {
-                            let target = document.getElementById('month-selection').value;
-                            window.open("../printrecord?targetmonth=" + target); 
-                        }
-                    </script>
-                    <button class="zi-btn action-btn" onclick="jumpToPrint();">CETAK</button>
-                </div>
             </div>
         </div>
+        <script>
+            window.onload = function() {
+                window.print();
+            }
+        </script>
     </body>
 </html>
