@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include ("../functions/authcheck.php");
+    require("../functions/authcheck.php");
     if (isset($_POST['namapekerja'])) {
         function generateID($nama,$notelefon,$katalaluan) {
             $tempid = "W";
@@ -57,7 +57,15 @@
             </form>
         </div>
         <div class="importbtn-sec">
-            atau <button class="zi-btn importbtn">IMPORT DATA</button>
+            atau <button class="zi-btn importbtn" onclick="getInputFile();">IMPORT DATA</button>
+            <form method="POST" action="../functions/importuser.php" enctype="multipart/form-data">
+                <input class="file-input" id="file-input" type="file" name="datafile" onchange="this.form.submit();">
+            </form>
         </div>
+        <script>
+            function getInputFile() {
+                document.getElementById("file-input").click();
+            }
+        </script>
     </body>
 </html>

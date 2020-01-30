@@ -1,7 +1,6 @@
-<?php 
-    require('../functions/dbcon.php');
+<?php
     session_start();
-    include ("../functions/authcheck.php");
+    require("./authcheck.php");
     $target = $_GET['index'];
     echo $target;
 

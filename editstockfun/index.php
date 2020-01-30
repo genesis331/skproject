@@ -1,8 +1,9 @@
-<?php 
+<?php
+    require('../functions/dbcon.php');
     session_start();
-    include ("../functions/authcheck.php");
+    require("../functions/authcheck.php");
     $target = $_GET['index'];
-    $data = mysqli_query(mysqli_connect("localhost","root","","antiquadb"), "SELECT * FROM antik WHERE idantik='$target'");
+    $data = mysqli_query($dbcon, "SELECT * FROM antik WHERE idantik='$target'");
     $info = mysqli_fetch_array($data);
 
     if (isset($_POST['update'])) {
@@ -10,7 +11,7 @@
         $harga = $_POST['hargaantik'];
         $tempatasal = $_POST['tempatasal'];
         $penjelasan = $_POST['deskripsi'];
-        $dbquery = mysqli_query(mysqli_connect("localhost","root","","antiquadb"),"UPDATE antik SET namaantik='$nama',hargaantik='$harga',tempatasalantik='$tempatasal',penjelasanantik='$penjelasan' WHERE idantik='$target'");
+        $dbquery = mysqli_query($dbcon,"UPDATE antik SET namaantik='$nama',hargaantik='$harga',tempatasalantik='$tempatasal',penjelasanantik='$penjelasan' WHERE idantik='$target'");
         header("Location: ../checkstock");
     }
 ?>

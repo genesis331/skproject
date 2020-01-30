@@ -1,15 +1,16 @@
-<?php 
+<?php
+    require('../functions/dbcon.php');
     session_start();
-    include ("../functions/authcheck.php");
+    require("../functions/authcheck.php");
     $target = $_GET['index'];
-    $data = mysqli_query(mysqli_connect("localhost","root","","antiquadb"), "SELECT * FROM pekerja WHERE idpekerja='$target'");
+    $data = mysqli_query($dbcon, "SELECT * FROM pekerja WHERE idpekerja='$target'");
     $info = mysqli_fetch_array($data);
 
     if (isset($_POST['update'])) {
         $nama = $_POST['namapekerja'];
         $notelefon = $_POST['notelefonpekerja'];
         $katalaluan = $_POST['katalaluan'];
-        $dbquery = mysqli_query(mysqli_connect("localhost","root","","antiquadb"),"UPDATE pekerja SET namapekerja='$nama',notelefonpekerja='$notelefon',katalaluanpekerja='$katalaluan' WHERE idpekerja='$target'");
+        $dbquery = mysqli_query($dbcon,"UPDATE pekerja SET namapekerja='$nama',notelefonpekerja='$notelefon',katalaluanpekerja='$katalaluan' WHERE idpekerja='$target'");
         header("Location: ../edituser");
     }
 ?>

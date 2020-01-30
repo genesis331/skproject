@@ -31,3 +31,7 @@
 .importbtn {
     margin-left: 2rem;
 }
+
+.file-input {
+    display: none;
+}

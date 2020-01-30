@@ -1,19 +1,21 @@
 <?php 
+    require('../functions/dbcon.php');
     session_start();
-    include ("../functions/authcheck.php");
+    require("../functions/authcheck.php");
     if (isset($_POST['nama'])) {
         function generateID($nama,$nokadic,$notelefon,$alamat,$negeri,$bandar,$poskod) {
+            global $dbcon;
             $tempid = "B";
             for($i = 0; $i < 5; $i++) {
                 $tempnum = rand(0,9);
                 $tempid = $tempid . $tempnum;
             }
-            $result = mysqli_query(mysqli_connect("localhost","root","","antiquadb"), "SELECT * FROM pembeli WHERE idpembeli='$tempid'");
+            $result = mysqli_query($dbcon, "SELECT * FROM pembeli WHERE idpembeli='$tempid'");
             if (mysqli_num_rows($result)) {
                 generateID();
             } else {
-                mysqli_query(mysqli_connect("localhost","root","","antiquadb"), "INSERT INTO alamat (alamat,negeri,poskod,bandar) values ('$alamat','$negeri','$poskod','$bandar')");
-                mysqli_query(mysqli_connect("localhost","root","","antiquadb"), "INSERT INTO pembeli (idpembeli,nokadicpembeli,notelefonpembeli,namapembeli,alamat) values ('$tempid','$nokadic','$notelefon','$nama','$alamat')");
+                mysqli_query($dbcon, "INSERT INTO alamat (alamat,negeri,poskod,bandar) values ('$alamat','$negeri','$poskod','$bandar')");
+                mysqli_query($dbcon, "INSERT INTO pembeli (idpembeli,nokadicpembeli,notelefonpembeli,namapembeli,alamat) values ('$tempid','$nokadic','$notelefon','$nama','$alamat')");
                 header("Location: ../addrecord");
             }
         }
@@ -86,6 +88,9 @@
                     <button class="zi-btn success submitbtn">TAMBAH DATA</button>
                 </div>
             </form>
+        </div>
+        <div class="importbtn-sec">
+            atau <button class="zi-btn importbtn">IMPORT DATA</button>
         </div>
         <script>
             let pahang = ['KUANTAN','TEMERLOH','BENTONG','MENTAKAB','RAUB','JERANTUT','PEKAN','KUALA LIPIS','BANDAR JENGKA','BUKIT TINGGI'];

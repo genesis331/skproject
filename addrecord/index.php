@@ -1,6 +1,7 @@
-<?php 
+<?php
+    require('../functions/dbcon.php');
     session_start();
-    include ("../functions/authcheck.php");
+    require("../functions/authcheck.php");
     error_reporting(0);
     if (isset($_POST['submit'])) {
         $antikselect = "";
@@ -42,7 +43,7 @@
                         <div class="zi-select-container">
                             <select class="zi-select" id="antik-selection" name="antik-selection0">
                                 <?php
-                                    $data = mysqli_query(mysqli_connect("localhost","root","","antiquadb"),"SELECT * FROM antik");
+                                    $data = mysqli_query($dbcon,"SELECT * FROM antik");
                                     while ($info = mysqli_fetch_array($data)) {
                                         if ($info['status'] != 0) {
                                 ?>
@@ -59,7 +60,7 @@
                     <div class="zi-select-container">
                         <select class="zi-select" name="pembeli" id="buyer-selection">
                             <?php
-                                $data = mysqli_query(mysqli_connect("localhost","root","","antiquadb"),"SELECT * FROM pembeli");
+                                $data = mysqli_query($dbcon,"SELECT * FROM pembeli");
                                 while ($info = mysqli_fetch_array($data)) {
                             ?>
                             <option value="<?php echo $info['idpembeli'];?>"><?php echo $info['namapembeli'];?></option>

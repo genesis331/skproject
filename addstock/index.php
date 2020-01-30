@@ -1,18 +1,20 @@
-<?php 
+<?php
+    require('../functions/dbcon.php');
     session_start();
-    include ("../functions/authcheck.php");
+    require("../functions/authcheck.php");
     if (isset($_POST['namaantik'])) {
         function generateID($nama,$harga,$tempatasal,$deskripsi) {
+            global $dbcon;
             $tempid = "A";
             for($i = 0; $i < 8; $i++) {
                 $tempnum = rand(0,9);
                 $tempid = $tempid . $tempnum;
             }
-            $result = mysqli_query(mysqli_connect("localhost","root","","antiquadb"), "SELECT * FROM antik WHERE idantik='$tempid'");
+            $result = mysqli_query($dbcon, "SELECT * FROM antik WHERE idantik='$tempid'");
             if (mysqli_num_rows($result)) {
                 generateID();
             } else {
-                $set1 = mysqli_query(mysqli_connect("localhost","root","","antiquadb"), "INSERT INTO antik values ('$tempid','$nama','$harga','$deskripsi','$tempatasal','1')");
+                $set1 = mysqli_query($dbcon, "INSERT INTO antik values ('$tempid','$nama','$harga','$deskripsi','$tempatasal','1')");
                 header("Location: ./");
             }
         }

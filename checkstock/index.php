@@ -1,7 +1,7 @@
 <?php 
     require('../functions/dbcon.php');
     session_start();
-    include ("../functions/authcheck.php");
+    require("../functions/authcheck.php");
 ?>
 <!DOCTYPE html>
 <html>

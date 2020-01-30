@@ -1,6 +1,7 @@
-<?php 
+<?php
+    require('../functions/dbcon.php');
     session_start();
-    include ("../functions/authcheck.php");
+    require("../functions/authcheck.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -95,16 +96,16 @@
                             }
                         </script>
                         <?php
-                            $data = mysqli_query(mysqli_connect("localhost","root","","antiquadb"),"SELECT * FROM jualan");
+                            $data = mysqli_query($dbcon,"SELECT * FROM jualan");
                             while ($info = mysqli_fetch_array($data)) {
                                 $result[] = $info;
                             }
                             $jsdata = json_encode($result);
-                            $data1 = mysqli_query(mysqli_connect("localhost","root","","antiquadb"),"SELECT * FROM pekerja");
+                            $data1 = mysqli_query($dbcon,"SELECT * FROM pekerja");
                             while ($info1 = mysqli_fetch_array($data1)) {
                                 $result1[] = $info1;
                             }
-                            $data2 = mysqli_query(mysqli_connect("localhost","root","","antiquadb"),"SELECT * FROM pembeli");
+                            $data2 = mysqli_query($dbcon,"SELECT * FROM pembeli");
                             while ($info2 = mysqli_fetch_array($data2)) {
                                 $result2[] = $info2;
                             }
