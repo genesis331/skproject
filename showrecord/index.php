@@ -1,6 +1,7 @@
 <?php 
     session_start();
     include ("../functions/authcheck.php");
+    error_reporting(0);
 ?>
 <!DOCTYPE html>
 <html>
@@ -105,7 +106,6 @@
                             while ($info = mysqli_fetch_array($data)) {
                                 $result[] = $info;
                             }
-                            $jsdata = json_encode($result);
                             $data1 = mysqli_query(mysqli_connect("localhost","root","","antiquadb"),"SELECT * FROM pekerja");
                             while ($info1 = mysqli_fetch_array($data1)) {
                                 $result1[] = $info1;
