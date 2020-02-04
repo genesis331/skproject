@@ -4,5 +4,6 @@
     $target = $_GET['index'];
 
     mysqli_query(mysqli_connect("localhost","root","","antiquadb"),"DELETE from antik WHERE idantik='$target'");
-    header("Location: ../checkstock");
+    echo "<script>alert('Berjaya menghapus maklumat antik.')</script>";
+    echo '<script>window.location.href = "../checkstock/";</script>';
 ?>

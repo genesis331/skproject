@@ -1,6 +1,7 @@
 <?php
     session_start();
     require("../functions/authcheck.php");
+    require("../functions/permcheck.php");
     if (isset($_POST['namapekerja'])) {
         function generateID($nama,$notelefon,$katalaluan) {
             $tempid = "W";
@@ -12,8 +13,9 @@
             if (mysqli_num_rows($result)) {
                 generateID();
             } else {
-                $result = mysqli_query(mysqli_connect("localhost","root","","antiquadb"), "INSERT INTO pekerja (idpekerja,namapekerja,notelefonpekerja,katalaluanpekerja) values ('$tempid','$nama','$notelefon','$katalaluan')");
-                header("Location: ./");
+                $result = mysqli_query(mysqli_connect("localhost","root","","antiquadb"), "INSERT INTO pekerja values ('$tempid','$nama','$notelefon','$katalaluan',0)");
+                echo "<script>alert('Berjaya menambah maklumat pekerja baru ke dalam sistem.')</script>";
+                echo '<script>window.location.href = "./";</script>';
             }
         }
         generateID($_POST['namapekerja'],$_POST['notelefonpekerja'],$_POST['katalaluan']);

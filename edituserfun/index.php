@@ -11,7 +11,8 @@
         $notelefon = $_POST['notelefonpekerja'];
         $katalaluan = $_POST['katalaluan'];
         $dbquery = mysqli_query($dbcon,"UPDATE pekerja SET namapekerja='$nama',notelefonpekerja='$notelefon',katalaluanpekerja='$katalaluan' WHERE idpekerja='$target'");
-        header("Location: ../edituser");
+        echo "<script>alert('Berjaya mengemaskini maklumat pekerja.')</script>";
+        echo '<script>window.location.href = "../edituser/";</script>';
     }
 ?>
 <!DOCTYPE html>

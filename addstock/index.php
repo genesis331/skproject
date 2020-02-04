@@ -15,7 +15,8 @@
                 generateID();
             } else {
                 $set1 = mysqli_query($dbcon, "INSERT INTO antik values ('$tempid','$nama','$harga','$deskripsi','$tempatasal','1')");
-                header("Location: ./");
+                echo "<script>alert('Berjaya menambah maklumat antik baru ke dalam sistem.')</script>";
+                echo '<script>window.location.href = "./";</script>';
             }
         }
         generateID($_POST['namaantik'],$_POST['hargaantik'],$_POST['tempatasal'],$_POST['deskripsi']);

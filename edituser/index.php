@@ -2,6 +2,7 @@
     require('../functions/dbcon.php');
     session_start();
     require("../functions/authcheck.php");
+    require("../functions/permcheck.php");
 ?>
 <!DOCTYPE html>
 <html>

@@ -12,7 +12,8 @@
         $tempatasal = $_POST['tempatasal'];
         $penjelasan = $_POST['deskripsi'];
         $dbquery = mysqli_query($dbcon,"UPDATE antik SET namaantik='$nama',hargaantik='$harga',tempatasalantik='$tempatasal',penjelasanantik='$penjelasan' WHERE idantik='$target'");
-        header("Location: ../checkstock");
+        echo "<script>alert('Berjaya mengemaskini maklumat antik.')</script>";
+        echo '<script>window.location.href = "../checkstock/";</script>';
     }
 ?>
 <!DOCTYPE html>
