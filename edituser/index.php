@@ -28,6 +28,7 @@
                         <tr>
                             <th>NAME PEKERJA</th>
                             <th>NO TELEFON PEKERJA</th>
+                            <th>JENIS PEKERJA</th>
                             <th>KATA LALUAN</th>
                             <th>TINDAKAN</th>
                         </tr>
@@ -40,6 +41,15 @@
                         <tr>
                             <td><?php echo $info['namapekerja'];?></td>
                             <td><?php echo $info['notelefonpekerja'];?></td>
+                            <td>
+                                <?php 
+                                    if ($info['status'] == 1) {
+                                        echo 'ADMIN';
+                                    } else {
+                                        echo 'PEKERJA';
+                                    }
+                                ?>
+                            </td>
                             <td><?php echo $info['katalaluanpekerja'];?></td>
                             <td>
                                 <a href="../edituserfun/index.php?index=<?php echo $info['idpekerja'];?>">

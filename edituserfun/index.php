@@ -10,7 +10,8 @@
         $nama = $_POST['namapekerja'];
         $notelefon = $_POST['notelefonpekerja'];
         $katalaluan = $_POST['katalaluan'];
-        $dbquery = mysqli_query($dbcon,"UPDATE pekerja SET namapekerja='$nama',notelefonpekerja='$notelefon',katalaluanpekerja='$katalaluan' WHERE idpekerja='$target'");
+        $jenis = number_format($_POST['user-type']);
+        $dbquery = mysqli_query($dbcon,"UPDATE pekerja SET namapekerja='$nama',notelefonpekerja='$notelefon',katalaluanpekerja='$katalaluan',status='$jenis' WHERE idpekerja='$target'");
         echo "<script>alert('Berjaya mengemaskini maklumat pekerja.')</script>";
         echo '<script>window.location.href = "../edituser/";</script>';
     }
@@ -45,6 +46,15 @@
                     <br>
                     <div class="zi-input-group prefix">
                         <input class="zi-input" placeholder="Kata Laluan Akaun Pekerja" name="katalaluan" required value="<?php echo $info['katalaluanpekerja'];?>">
+                    </div>
+                    <br><br>
+                    <label>Jenis pekerja:</label>
+                    <div class="zi-select-container">
+                        <select class="zi-select" id="user-type-selection" name="user-type">
+                            <option <?php if ($info['katalaluanpekerja'] == 1 ) echo 'selected';?> value="1">ADMIN</option>
+                            <option <?php if ($info['katalaluanpekerja'] == 0 ) echo 'selected';?> value="0">PEKERJA</option>
+                        </select>
+                        <i class="arrow zi-icon-up"></i>
                     </div>
                 </div>
                 <div>

@@ -13,7 +13,8 @@
             if (mysqli_num_rows($result)) {
                 generateID();
             } else {
-                $result = mysqli_query(mysqli_connect("localhost","root","","antiquadb"), "INSERT INTO pekerja values ('$tempid','$nama','$notelefon','$katalaluan',0)");
+                $jenis = number_format($_POST['user-type']);
+                $result = mysqli_query(mysqli_connect("localhost","root","","antiquadb"), "INSERT INTO pekerja values ('$tempid','$nama','$notelefon','$katalaluan','$jenis')");
                 echo "<script>alert('Berjaya menambah maklumat pekerja baru ke dalam sistem.')</script>";
                 echo '<script>window.location.href = "./";</script>';
             }
@@ -51,6 +52,15 @@
                     <br>
                     <div class="zi-input-group">
                         <input class="zi-input" placeholder="Kata Laluan Akaun Pekerja" name="katalaluan" required>
+                    </div>
+                    <br><br>
+                    <label>Jenis pekerja:</label>
+                    <div class="zi-select-container">
+                        <select class="zi-select" id="user-type-selection" name="user-type">
+                            <option value="1">ADMIN</option>
+                            <option value="0">PEKERJA</option>
+                        </select>
+                        <i class="arrow zi-icon-up"></i>
                     </div>
                 </div>
                 <div>
