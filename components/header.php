@@ -47,12 +47,22 @@
         transition: 0.2s;
         opacity: 0;
         pointer-events: none;
+        display: initial;
     }
 
     .zi-popover-dropdown.active {
         transition: 0.2s;
         opacity: 1;
         pointer-events: initial;
+    }
+
+    .customization-op-sec {
+        padding: 2px 14px;
+    }
+
+    .customization-op img {
+        height: 1.5rem;
+        padding: 0.5rem;
     }
 </style>
 <script>
@@ -67,6 +77,17 @@
             document.getElementById('zi-popover-dropdown').classList.add('active');
             document.getElementById('menu-overlay').classList.add('active');
         }
+    }
+
+    let currentSize = 14;
+    function zoomIn() {
+        document.getElementsByTagName('html')[0].style.fontSize = currentSize + 1 + "px";
+        currentSize++;
+    }
+
+    function zoomOut() {
+        document.getElementsByTagName('html')[0].style.fontSize = currentSize - 1 + "px";
+        currentSize--;
     }
 </script>
 <div class="header-sec">
@@ -86,6 +107,15 @@
                 <a href="../addrecord/"><div class="zi-popover-item">Rekod Jualan</div></a>
                 <a href="../showrecord/"><div class="zi-popover-item">Papar Jualan</div></a>
                 <a href="../functions/logkeluar.php"><div class="zi-popover-item">Log Keluar</div></a>
+                <br/>
+                <div class="customization-op-sec">
+                    <a class="customization-op" onclick="zoomIn();">
+                        <img src="../assets/images/zoom-in.svg"/>
+                    </a>
+                    <a class="customization-op" onclick="zoomOut();">
+                        <img src="../assets/images/zoom-out.svg"/>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
