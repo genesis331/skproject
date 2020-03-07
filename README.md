@@ -13,8 +13,8 @@ A web-based sales management system built with HTML, CSS, JavaScript and PHP.
 
 ### Steps
 1) Clone this repo (`git clone`) or download as ZIP to your PC.
-2) Move the `skproject` folder to XAMPP `htdocs/`.
+2) Move the `skproject/` folder to XAMPP `htdocs/`.
 3) Perform `npm install` in terminal.
 4) In XAMPP Control Panel, start Apache and MySQL modules.
-5) In your browser, enter `localhost`as the URL.
+5) In your browser, enter `localhost` as the URL.
 6) Select `skproject`.
