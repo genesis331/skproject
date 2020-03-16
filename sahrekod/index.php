@@ -32,7 +32,8 @@
                 mysqli_query($dbcon, "INSERT INTO jualan (idjualan,jumlahjualan,tarikhjualan,idpembeli,idpekerja,idantik) values ('$tempid','$harga','$date','$pembeli','$penjual','$antik[$a]')");
                 $data1 = mysqli_query($dbcon,"UPDATE antik SET status='0' WHERE idantik='$antik[$a]'");
             }
-            header("Location: ../addrecord");
+            echo "<script>alert('Berjaya menambah tempahan baru ke dalam sistem.')</script>";
+            echo '<script>window.location.href = "../tambahrekod";</script>';
         }
         insertDB();
     }

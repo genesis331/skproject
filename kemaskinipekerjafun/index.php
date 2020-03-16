@@ -14,7 +14,7 @@
         $jenis = number_format($_POST['user-type']);
         $dbquery = mysqli_query($dbcon,"UPDATE pekerja SET namapekerja='$nama',notelefonpekerja='$notelefon',katalaluanpekerja='$katalaluan',status='$jenis' WHERE idpekerja='$target'");
         echo "<script>alert('Berjaya mengemaskini maklumat pekerja.')</script>";
-        echo '<script>window.location.href = "../edituser/";</script>';
+        echo '<script>window.location.href = "../kemaskinipekerja/";</script>';
     }
 ?>
 <!DOCTYPE html>

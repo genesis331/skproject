@@ -14,7 +14,7 @@
                 $result = mysqli_query(mysqli_connect("localhost","root","","antiquadb"), "INSERT INTO antik values ('$tempid','".$getData[0]."','".$getData[1]."','".$getData[2]."','".$getData[3]."',1)");
             }
             echo "<script>alert('Berjaya mengimport maklumat barang antik.')</script>";
-            echo '<script>window.location.href = "../adduser/";</script>';
+            echo '<script>window.location.href = "../tambahstok/";</script>';
         }
     }
 ?>

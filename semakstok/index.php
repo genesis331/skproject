@@ -45,7 +45,7 @@
                             <td><?php echo $info['hargaantik'];?></td>
                             <th><?php echo $info['penjelasanantik'];?></th>
                             <td>
-                                <a href="../editstockfun/index.php?index=<?php echo $info['idantik'];?>">
+                                <a href="../kemaskinistokfun/index.php?index=<?php echo $info['idantik'];?>">
                                     <button class="zi-btn action-btn">KEMASKINI</button>
                                 </a>
                                 <a href="../functions/hapusantik.php?index=<?php echo $info['idantik'];?>">

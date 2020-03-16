@@ -16,7 +16,7 @@
         }
         $idpembeli = $_POST['pembeli'];
         $tarikhjualan = $_POST['tarikhjualan'];
-        header("Location: ../confirmrecord/index.php?antik=$antikselect" . "&pembeli=$idpembeli" . "&tarikh=$tarikhjualan");
+        header("Location: ../sahrekod/index.php?antik=$antikselect" . "&pembeli=$idpembeli" . "&tarikh=$tarikhjualan");
     }
 ?>
 <!DOCTYPE html>
@@ -75,7 +75,7 @@
             </form>
             <div class="extra-btn">
                 <button class="zi-btn add-buyer-btn" onclick="appendInput();">Tambah Belian</button>
-                <a href="../addbuyer/"><button class="zi-btn add-buyer-btn">Tambah Pembeli</button></a>
+                <a href="../tambahpembeli/"><button class="zi-btn add-buyer-btn">Tambah Pembeli</button></a>
             </div>
         </div>
         <script>

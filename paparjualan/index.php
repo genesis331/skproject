@@ -130,7 +130,7 @@
                     <script>
                         function jumpToPrint() {
                             let target = document.getElementById('month-selection').value;
-                            window.open("../printrecord?targetmonth=" + target); 
+                            window.open("../cetakjualan?targetmonth=" + target); 
                         }
                     </script>
                     <button class="zi-btn action-btn" onclick="jumpToPrint();">CETAK</button>

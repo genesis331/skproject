@@ -16,7 +16,7 @@
                 $result = mysqli_query($dbcon, "INSERT INTO pekerja values ('$tempid','".$getData[0]."','".$getData[1]."','".$getData[2]."','".$getData[3]."')");
             }
             echo "<script>alert('Berjaya mengimport maklumat pekerja.')</script>";
-            echo '<script>window.location.href = "../adduser/";</script>';
+            echo '<script>window.location.href = "../tambahpembeli/";</script>';
         }
     }
 ?>

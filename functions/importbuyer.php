@@ -16,7 +16,7 @@
                 mysqli_query($dbcon, "INSERT INTO pembeli values ('$tempid','".$getData[0]."','".$getData[1]."','".$getData[2]."','".$getData[3]."')");
             }
             echo "<script>alert('Berjaya mengimport maklumat pembeli.')</script>";
-            echo '<script>window.location.href = "../addbuyer/";</script>';
+            echo '<script>window.location.href = "../tambahpembeli/";</script>';
         }
     }
 ?>
