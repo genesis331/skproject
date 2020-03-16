@@ -23,3 +23,19 @@
     transform: translateY(-50%);
     margin-left: 15rem;
 }
+
+.importbtn-sec {
+    margin: 4rem 8rem;
+}
+
+.importbtn {
+    margin-left: 2rem;
+}
+
+.file-input {
+    display: none;
+}
+
+label {
+    margin-right: 1rem;
+}

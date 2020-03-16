@@ -106,6 +106,7 @@
                 <a href="../checkstock/"><div class="zi-popover-item">Semak Stok</div></a>
                 <a href="../addrecord/"><div class="zi-popover-item">Rekod Jualan</div></a>
                 <a href="../showrecord/"><div class="zi-popover-item">Papar Jualan</div></a>
+                <a href="../main/"><div class="zi-popover-item">Semak Pembeli</div></a>
                 <a href="../functions/logkeluar.php"><div class="zi-popover-item">Log Keluar</div></a>
                 <br/>
                 <div class="customization-op-sec">

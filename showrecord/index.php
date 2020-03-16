@@ -62,6 +62,7 @@
                             <th>AMAUN DIBAYAR</th>
                             <th>TARIKH JUALAN</th>
                             <th>NAMA PENJUAL</th>
+                            <th>BARANG DIBELI</th>
                         </tr>
                     </thead>
                     <tbody id="tbody">
@@ -97,6 +98,9 @@
                                             }
                                         }
                                         elem.appendChild(elem5);
+                                        elem6 = document.createElement('td');
+                                        elem6.innerHTML = data[i]['idantik'];
+                                        elem.appendChild(elem6);
                                         document.getElementById('tbody').appendChild(elem);
                                     }
                                 }

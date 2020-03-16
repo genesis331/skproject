@@ -37,6 +37,7 @@
                             $data = mysqli_query($dbcon,"SELECT * FROM antik"); 
                             $no = 1;
                             while ($info = mysqli_fetch_array($data)) {
+                                if ($info['status']) {
                         ?>
                         <tr>
                             <td><?php echo $info['namaantik'];?></td>
@@ -52,7 +53,7 @@
                                 </a>
                             </td>
                         </tr>
-                        <?php }?>
+                        <?php }}?>
                     </tbody>
                 </table>
             </div>
