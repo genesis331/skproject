@@ -90,8 +90,16 @@
             </form>
         </div>
         <div class="importbtn-sec">
-            atau <button class="zi-btn importbtn">IMPORT DATA</button>
+            atau <button class="zi-btn importbtn" onclick="getInputFile();">IMPORT DATA</button>
+            <form method="POST" action="../functions/importbuyer.php" enctype="multipart/form-data">
+                <input class="file-input" id="file-input" type="file" name="datafile" onchange="this.form.submit();">
+            </form>
         </div>
+        <script>
+            function getInputFile() {
+                document.getElementById("file-input").click();
+            }
+        </script>
         <script>
             let pahang = ['KUANTAN','TEMERLOH','BENTONG','MENTAKAB','RAUB','JERANTUT','PEKAN','KUALA LIPIS','BANDAR JENGKA','BUKIT TINGGI'];
             let perak = ['IPOH','TAIPING','SITIAWAN','SIMPANG EMPAT','TELUK INTAN','BATU GAJAH','LUMUT','KAMPUNG KOH','KUALA KANGSAR','SUNGAI SIPUT','TAPAH','BIDOR','PARIT BUNTAR','AYER TAWAR','BAGAN SERAI','TANJUNG MALIM','LAWAN KUDA BAHARU','PANTAI REMIS','KAMPAR','KAMPUNG GAJAH'];
