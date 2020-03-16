@@ -1,6 +1,6 @@
 <?php
-    require('../functions/dbcon.php');
     session_start();
+    require('../functions/dbcon.php');
     require("../functions/authcheck.php");
     error_reporting(0);
 ?>

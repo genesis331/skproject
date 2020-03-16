@@ -1,6 +1,6 @@
 <?php
-    require('../functions/dbcon.php');
     session_start();
+    require('../functions/dbcon.php');
     require("../functions/authcheck.php");
     if (isset($_POST['namaantik'])) {
         function generateID($nama,$harga,$tempatasal,$deskripsi) {

@@ -1,6 +1,6 @@
 <?php
-    require('../functions/dbcon.php');
     session_start();
+    require('../functions/dbcon.php');
     require("../functions/authcheck.php");
     $target = $_GET['index'];
     $data = mysqli_query($dbcon, "SELECT * FROM antik WHERE idantik='$target'");

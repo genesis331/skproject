@@ -1,20 +1,22 @@
 <?php
     session_start();
+    require('../functions/dbcon.php');
     require("../functions/authcheck.php");
     require("../functions/permcheck.php");
     if (isset($_POST['namapekerja'])) {
         function generateID($nama,$notelefon,$katalaluan) {
+            global $dbcon;
             $tempid = "W";
             for($i = 0; $i < 5; $i++) {
                 $tempnum = rand(0,9);
                 $tempid = $tempid . $tempnum;
             }
-            $result = mysqli_query(mysqli_connect("localhost","root","","antiquadb"), "SELECT * FROM pekerja WHERE idpekerja='$tempid'");
+            $result = mysqli_query($dbcon, "SELECT * FROM pekerja WHERE idpekerja='$tempid'");
             if (mysqli_num_rows($result)) {
                 generateID();
             } else {
                 $jenis = number_format($_POST['user-type']);
-                $result = mysqli_query(mysqli_connect("localhost","root","","antiquadb"), "INSERT INTO pekerja values ('$tempid','$nama','$notelefon','$katalaluan','$jenis')");
+                $result = mysqli_query($dbcon, "INSERT INTO pekerja values ('$tempid','$nama','$notelefon','$katalaluan','$jenis')");
                 echo "<script>alert('Berjaya menambah maklumat pekerja baru ke dalam sistem.')</script>";
                 echo '<script>window.location.href = "./";</script>';
             }
