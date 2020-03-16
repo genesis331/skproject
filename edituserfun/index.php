@@ -2,6 +2,7 @@
     require('../functions/dbcon.php');
     session_start();
     require("../functions/authcheck.php");
+    require("../functions/permcheck.php");
     $target = $_GET['index'];
     $data = mysqli_query($dbcon, "SELECT * FROM pekerja WHERE idpekerja='$target'");
     $info = mysqli_fetch_array($data);
@@ -51,8 +52,8 @@
                     <label>Jenis pekerja:</label>
                     <div class="zi-select-container">
                         <select class="zi-select" id="user-type-selection" name="user-type">
-                            <option <?php if ($info['katalaluanpekerja'] == 1 ) echo 'selected';?> value="1">ADMIN</option>
-                            <option <?php if ($info['katalaluanpekerja'] == 0 ) echo 'selected';?> value="0">PEKERJA</option>
+                            <option <?php if ($info['status'] == 1 ) echo 'selected';?> value="1">ADMIN</option>
+                            <option <?php if ($info['status'] == 0 ) echo 'selected';?> value="0">PEKERJA</option>
                         </select>
                         <i class="arrow zi-icon-up"></i>
                     </div>

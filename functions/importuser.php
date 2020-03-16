@@ -1,6 +1,7 @@
 <?php
     session_start();
     require("./authcheck.php");
+    require("./permcheck.php");
     if(isset($_FILES['datafile'])) {
         $filename = $_FILES['datafile']['tmp_name'];
         if ($_FILES['datafile']['size'] > 0) {
