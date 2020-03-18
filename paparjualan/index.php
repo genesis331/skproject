@@ -74,6 +74,7 @@
                                 pembelidata = data2;
                                 antikdata = data3;
                                 rekoddata = data4;
+                                var outputItems = "";
                                 for (let i = 0; i <= data.length - 1; i++) {
                                     if (parseInt(data[i]['tarikhjualan'].split('-')[1]) == parseInt(document.getElementById('month-selection').value)) {
                                         let elem = document.createElement('tr');
@@ -101,11 +102,17 @@
                                         }
                                         elem.appendChild(elem5);
                                         elem6 = document.createElement('td');
-                                        // for (let iv = 0; iv <= data3.length - 1; iv++) {
-                                        //     if (data3[iv]['idantik'] == data[i]['idantik']) {
-                                        //         elem6.innerHTML = data3[iv]['namaantik'];
-                                        //     }
-                                        // }
+                                        for (let v = 0; v <= data4.length - 1; v++) {
+                                            if (data4[v]['idjualan'] == data[i]['idjualan']) {
+                                                for (let vi = 0; vi <= data4.length - 1; vi++) {
+                                                    if (data4[v]['idantik'] == data3[vi]['idantik']) {
+                                                        outputItems += data3[vi]['namaantik'] + "<br/>";
+                                                    }
+                                                }
+                                                elem6.innerHTML = outputItems;
+                                            }
+                                        }
+                                        outputItems = "";
                                         elem.appendChild(elem6);
                                         document.getElementById('tbody').appendChild(elem);
                                     }

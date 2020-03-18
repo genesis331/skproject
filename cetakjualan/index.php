@@ -55,15 +55,19 @@
                             <th>AMAUN DIBAYAR</th>
                             <th>TARIKH JUALAN</th>
                             <th>NAMA PENJUAL</th>
+                            <th>BARANG DIBELI</th>
                         </tr>
                     </thead>
                     <tbody id="tbody">
                         <script>
-                            function updateDisplay(data,data1,data2) {
+                            function updateDisplay(data,data1,data2,data3,data4) {
                                 document.getElementById('tbody').innerHTML = "";
                                 jualandata = data;
                                 pekerjadata = data1;
                                 pembelidata = data2;
+                                antikdata = data3;
+                                rekoddata = data4;
+                                var outputItems = "";
                                 for (let i = 0; i <= data.length - 1; i++) {
                                     if (parseInt(data[i]['tarikhjualan'].split('-')[1]) == parseInt(<?php echo $_GET['targetmonth']?>)) {
                                         let elem = document.createElement('tr');
@@ -91,6 +95,17 @@
                                         }
                                         elem.appendChild(elem5);
                                         elem6 = document.createElement('td');
+                                        for (let v = 0; v <= data4.length - 1; v++) {
+                                            if (data4[v]['idjualan'] == data[i]['idjualan']) {
+                                                for (let vi = 0; vi <= data4.length - 1; vi++) {
+                                                    if (data4[v]['idantik'] == data3[vi]['idantik']) {
+                                                        outputItems += data3[vi]['namaantik'] + "<br/>";
+                                                    }
+                                                }
+                                                elem6.innerHTML = outputItems;
+                                            }
+                                        }
+                                        outputItems = "";
                                         elem.appendChild(elem6);
                                         document.getElementById('tbody').appendChild(elem);
                                     }
@@ -111,10 +126,20 @@
                             while ($info2 = mysqli_fetch_array($data2)) {
                                 $result2[] = $info2;
                             }
+                            $data3 = mysqli_query($dbcon,"SELECT * FROM antik");
+                            while ($info3 = mysqli_fetch_array($data3)) {
+                                $result3[] = $info3;
+                            }
+                            $data4 = mysqli_query($dbcon,"SELECT * FROM rekod");
+                            while ($info4 = mysqli_fetch_array($data4)) {
+                                $result4[] = $info4;
+                            }
                             $jsdata = json_encode($result);
                             $jsdata1 = json_encode($result1);
                             $jsdata2 = json_encode($result2);
-                            echo "<script>updateDisplay($jsdata,$jsdata1,$jsdata2)</script>";
+                            $jsdata3 = json_encode($result3);
+                            $jsdata4 = json_encode($result4);
+                            echo "<script>updateDisplay($jsdata,$jsdata1,$jsdata2,$jsdata3,$jsdata4)</script>";
                         ?>
                     </tbody>
                 </table>
