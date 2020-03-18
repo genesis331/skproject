@@ -13,7 +13,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../node_modules/@zeit-ui/style/dist/style.css">
         <link rel="stylesheet" href="../style/global.css">
-        <link rel="stylesheet" href="../style/showrecord.css">
+        <link rel="stylesheet" href="../style/paparjualan.css">
     </head>
     <body class="zi-main zi-dark-theme">
         <script>

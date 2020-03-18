@@ -53,6 +53,9 @@
                     <button class="zi-btn success">LOG MASUK</button>
                 </div>
             </form>
+            <div class="register-sec">
+                Pengguna baru? <a>Klik sini</a> untuk mendaftar.
+            </div>
         </div>
     </body>
 </html>

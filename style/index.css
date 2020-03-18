@@ -24,3 +24,11 @@
 .submitbtn-sec {
     margin-top: 4rem;
 }
+
+.register-sec {
+    margin-top: 5rem;
+}
+
+.register-sec a {
+    text-decoration: underline;
+}
