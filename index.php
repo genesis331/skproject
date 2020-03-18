@@ -54,7 +54,7 @@
                 </div>
             </form>
             <div class="register-sec">
-                Pengguna baru? <a>Klik sini</a> untuk mendaftar.
+                Pengguna baru? <a href="./tambahpekerja">Klik sini</a> untuk mendaftar.
             </div>
         </div>
     </body>

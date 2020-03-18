@@ -1,8 +1,8 @@
 <?php
     session_start();
     require('../functions/dbcon.php');
-    require("../functions/authcheck.php");
-    require("../functions/permcheck.php");
+    // require("../functions/authcheck.php");
+    // require("../functions/permcheck.php");
     if (isset($_POST['namapekerja'])) {
         function generateID($nama,$notelefon,$katalaluan) {
             global $dbcon;
