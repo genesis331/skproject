@@ -90,6 +90,8 @@
                                             }
                                         }
                                         elem.appendChild(elem5);
+                                        elem6 = document.createElement('td');
+                                        elem.appendChild(elem6);
                                         document.getElementById('tbody').appendChild(elem);
                                     }
                                 }

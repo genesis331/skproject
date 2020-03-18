@@ -33,7 +33,7 @@
                 </span>
                 <form method="POST" class="form-sec">
                 <div class="zi-select-container">
-                    <select class="zi-select" name="month-selection" id="month-selection" onChange="updateDisplay(jualandata,pekerjadata,pembelidata,antikdata);">
+                    <select class="zi-select" name="month-selection" id="month-selection" onChange="updateDisplay(jualandata,pekerjadata,pembelidata,antikdata,rekoddata);">
                         <option value="01">Januari</option>
                         <option value="02">Februari</option>
                         <option value="03">Mac</option>
@@ -67,12 +67,13 @@
                     </thead>
                     <tbody id="tbody">
                         <script>
-                            function updateDisplay(data,data1,data2,data3) {
+                            function updateDisplay(data,data1,data2,data3,data4) {
                                 document.getElementById('tbody').innerHTML = "";
                                 jualandata = data;
                                 pekerjadata = data1;
                                 pembelidata = data2;
                                 antikdata = data3;
+                                rekoddata = data4;
                                 for (let i = 0; i <= data.length - 1; i++) {
                                     if (parseInt(data[i]['tarikhjualan'].split('-')[1]) == parseInt(document.getElementById('month-selection').value)) {
                                         let elem = document.createElement('tr');
@@ -100,11 +101,11 @@
                                         }
                                         elem.appendChild(elem5);
                                         elem6 = document.createElement('td');
-                                        for (let iv = 0; iv <= data3.length - 1; iv++) {
-                                            if (data3[iv]['idantik'] == data[i]['idantik']) {
-                                                elem6.innerHTML = data3[iv]['namaantik'];
-                                            }
-                                        }
+                                        // for (let iv = 0; iv <= data3.length - 1; iv++) {
+                                        //     if (data3[iv]['idantik'] == data[i]['idantik']) {
+                                        //         elem6.innerHTML = data3[iv]['namaantik'];
+                                        //     }
+                                        // }
                                         elem.appendChild(elem6);
                                         document.getElementById('tbody').appendChild(elem);
                                     }
@@ -128,11 +129,16 @@
                             while ($info3 = mysqli_fetch_array($data3)) {
                                 $result3[] = $info3;
                             }
+                            $data4 = mysqli_query($dbcon,"SELECT * FROM rekod");
+                            while ($info4 = mysqli_fetch_array($data4)) {
+                                $result4[] = $info4;
+                            }
                             $jsdata = json_encode($result);
                             $jsdata1 = json_encode($result1);
                             $jsdata2 = json_encode($result2);
                             $jsdata3 = json_encode($result3);
-                            echo "<script>updateDisplay($jsdata,$jsdata1,$jsdata2,$jsdata3)</script>";
+                            $jsdata4 = json_encode($result4);
+                            echo "<script>updateDisplay($jsdata,$jsdata1,$jsdata2,$jsdata3,$jsdata4)</script>";
                         ?>
                     </tbody>
                 </table>

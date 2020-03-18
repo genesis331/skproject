@@ -23,13 +23,17 @@
             $pembeli = $_GET['pembeli'];
             $penjual = $_SESSION['idpekerja'];
             $antik = explode(',',$_GET['antik']);
-            for($a = 0; $a <= count($antik) - 1; $a++) {
-                $target = $antik[$a];
+            $sum = 0;
+            for($i = 0; $i <= count($antik) - 1; $i++) {
+                $target = $antik[$i];
                 $data = mysqli_query($dbcon,"SELECT * FROM antik WHERE idantik='$target'");
                 $output = mysqli_fetch_array($data);
-                $harga = $output['hargaantik'];
-                $tempid = generateID();
-                mysqli_query($dbcon, "INSERT INTO jualan (idjualan,jumlahjualan,tarikhjualan,idpembeli,idpekerja,idantik) values ('$tempid','$harga','$date','$pembeli','$penjual','$antik[$a]')");
+                $sum = $sum + $output['hargaantik'];
+            }
+            $tempid = generateID();
+            mysqli_query($dbcon, "INSERT INTO jualan values ('$tempid','$sum','$date','$pembeli','$penjual')");
+            for($a = 0; $a <= count($antik) - 1; $a++) {
+                mysqli_query($dbcon, "INSERT INTO rekod values (NULL,'$tempid','$antik[$a]')");
                 $data1 = mysqli_query($dbcon,"UPDATE antik SET status='0' WHERE idantik='$antik[$a]'");
             }
             echo "<script>alert('Berjaya menambah tempahan baru ke dalam sistem.')</script>";
