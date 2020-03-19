@@ -48,7 +48,7 @@
                                 <a href="../kemaskinistokfun/index.php?index=<?php echo $info['idantik'];?>">
                                     <button class="zi-btn action-btn">KEMASKINI</button>
                                 </a>
-                                <a href="../functions/hapusantik.php?index=<?php echo $info['idantik'];?>">
+                                <a href="../functions/hapusantik.php?index=<?php echo $info['idantik'];?>" onclick="return confirm('Hapus maklumat stok dari sistem?');">
                                     <button class="zi-btn action-btn">HAPUS</button>
                                 </a>
                             </td>

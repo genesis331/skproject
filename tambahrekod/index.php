@@ -70,7 +70,7 @@
                     </div>
                 </div>
                 <div>
-                    <button class="zi-btn success submitbtn" name="submit">TAMBAH DATA</button>
+                    <button class="zi-btn success submitbtn" name="submit" onclick="return confirm('Tambah rekod baru ke dalam sistem?');">TAMBAH DATA</button>
                 </div>
             </form>
             <div class="extra-btn">

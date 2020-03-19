@@ -66,7 +66,7 @@
                     </div>
                 </div>
                 <div>
-                    <button class="zi-btn success submitbtn">TAMBAH DATA</button>
+                    <button class="zi-btn success submitbtn" onclick="return confirm('Tambah maklumat pekerja baru ke dalam sistem?');">TAMBAH DATA</button>
                 </div>
             </form>
         </div>

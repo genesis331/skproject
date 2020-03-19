@@ -46,11 +46,8 @@
                             <th><?php echo $info['notelefonpembeli'];?></th>
                             <th><?php echo $info['alamat'] . ", " . $info['bandar'] . ", " . $info['poskod'] . ", " . $info['negeri'];?></th>
                             <td>
-                                <a>
-                                    <button class="zi-btn action-btn">KEMASKINI</button>
-                                </a>
                                 <a href="../functions/hapuspembeli.php?index=<?php echo $info['idpembeli'];?>">
-                                    <button class="zi-btn action-btn">HAPUS</button>
+                                    <button class="zi-btn action-btn" onclick="return confirm('Hapus maklumat pembeli dari sistem?');">HAPUS</button>
                                 </a>
                             </td>
                         </tr>

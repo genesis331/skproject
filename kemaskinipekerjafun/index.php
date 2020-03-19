@@ -59,7 +59,7 @@
                     </div>
                 </div>
                 <div>
-                    <button class="zi-btn success submitbtn" name="update">KEMASKINI DATA</button>
+                    <button class="zi-btn success submitbtn" name="update" onclick="return confirm('Kemaskini maklumat pekerja dalam sistem?');">KEMASKINI DATA</button>
                 </div>
             </form>
         </div>
