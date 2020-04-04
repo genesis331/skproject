@@ -67,6 +67,7 @@
                     </thead>
                     <tbody id="tbody">
                         <script>
+                            let jumlahbulanan = 0;
                             function updateDisplay(data,data1,data2,data3,data4) {
                                 document.getElementById('tbody').innerHTML = "";
                                 jualandata = data;
@@ -90,6 +91,8 @@
                                         elem.appendChild(elem2);
                                         elem3 = document.createElement('td');
                                         elem3.innerHTML = "RM " + data[i]['jumlahjualan'];
+                                        jumlahbulanan += parseInt(data[i]['jumlahjualan']);
+                                        document.getElementById('jumlahbulanan').innerHTML = "RM " + jumlahbulanan;
                                         elem.appendChild(elem3);
                                         elem4 = document.createElement('td');
                                         elem4.innerHTML = data[i]['tarikhjualan'];
@@ -149,6 +152,12 @@
                         ?>
                     </tbody>
                 </table>
+                <div class="confirm-sec">
+                    <div class="jumlah-sec">
+                        Jumlah Bayaran: 
+                        <span id="jumlahbulanan">RM 0.00</span>
+                    </div>
+                </div>
                 <div class="print-btn-sec">
                     <script>
                         function jumpToPrint() {

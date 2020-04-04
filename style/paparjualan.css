@@ -16,3 +16,24 @@
     text-align: right;
     margin-top: 4rem;
 }
+
+.confirm-sec {
+    display: inline-block;
+    margin-top: 3rem;
+    width: 95%;
+    text-align: right;
+}
+
+.jumlah-sec {
+    font-size: 1.5rem;
+    font-family: "Volte Bold";
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.jumlah-sec span {
+    margin: 0 3.5rem 0 1rem;
+    vertical-align: middle;
+    font-size: 1.3rem;
+    font-family: "Volte";
+}
