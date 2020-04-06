@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/genesis331/skproject#readme",
   "dependencies": {
-    "@zeit-ui/style": "^0.9.4"
+    "@zeit-ui/style": "^0.9.4",
+    "chart.js": "^2.9.3"
   }
 }
