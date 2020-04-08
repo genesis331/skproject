@@ -16,9 +16,14 @@
                 generateID();
             } else {
                 $jenis = number_format($_POST['user-type']);
-                $result = mysqli_query($dbcon, "INSERT INTO pekerja values ('$tempid','$nama','$notelefon','$katalaluan','$jenis')");
-                echo "<script>alert('Berjaya menambah maklumat pekerja baru ke dalam sistem.')</script>";
-                echo '<script>window.location.href = "./";</script>';
+                $cmd = mysqli_query($dbcon, "INSERT INTO pekerja values ('$tempid','$nama','$notelefon','$katalaluan','$jenis')");
+                if ($cmd) {
+                    echo "<script>alert('Berjaya menambah maklumat pekerja baru ke dalam sistem.')</script>";
+                    echo '<script>window.location.href = "./";</script>';
+                } else {
+                    echo "<script>alert('Gagal menambah maklumat pekerja baru ke dalam sistem.')</script>";
+                    echo '<script>window.location.href = "./";</script>';
+                }
             }
         }
         generateID($_POST['namapekerja'],$_POST['notelefonpekerja'],$_POST['katalaluan']);

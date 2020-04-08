@@ -3,7 +3,12 @@
     require('./dbcon.php');
     require("./authcheck.php");
     $target = $_GET['index'];
-    mysqli_query($dbcon,"DELETE from antik WHERE idantik='$target'");
-    echo "<script>alert('Berjaya menghapus maklumat antik.')</script>";
-    echo '<script>window.location.href = "../semakstok/";</script>';
+    $cmd = mysqli_query($dbcon,"DELETE from antik WHERE idantik='$target'");
+    if ($cmd) {
+        echo "<script>alert('Berjaya menghapus maklumat antik.')</script>";
+        echo '<script>window.location.href = "../semakstok/";</script>';
+    } else {
+        echo "<script>alert('Gagal menghapus maklumat antik.')</script>";
+        echo '<script>window.location.href = "../semakstok/";</script>';
+    }
 ?>

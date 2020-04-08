@@ -14,10 +14,15 @@
             if (mysqli_num_rows($result)) {
                 generateID();
             } else {
-                mysqli_query($dbcon, "INSERT INTO alamat (alamat,negeri,poskod,bandar) values ('$alamat','$negeri','$poskod','$bandar')");
-                mysqli_query($dbcon, "INSERT INTO pembeli (idpembeli,nokadicpembeli,notelefonpembeli,namapembeli,alamat) values ('$tempid','$nokadic','$notelefon','$nama','$alamat')");
-                echo "<script>alert('Berjaya menambah maklumat pembeli baru ke dalam sistem.')</script>";
-                echo '<script>window.location.href = "./";</script>';
+                $cmd1 = mysqli_query($dbcon, "INSERT INTO alamat (alamat,negeri,poskod,bandar) values ('$alamat','$negeri','$poskod','$bandar')");
+                $cmd2 = mysqli_query($dbcon, "INSERT INTO pembeli (idpembeli,nokadicpembeli,notelefonpembeli,namapembeli,alamat) values ('$tempid','$nokadic','$notelefon','$nama','$alamat')");
+                if ($cmd1 && $cmd2) {
+                    echo "<script>alert('Berjaya menambah maklumat pembeli baru ke dalam sistem.')</script>";
+                    echo '<script>window.location.href = "./";</script>';
+                } else {
+                    echo "<script>alert('Gagal menambah maklumat pembeli baru ke dalam sistem.')</script>";
+                    echo '<script>window.location.href = "./";</script>';
+                }
             }
         }
         generateID($_POST['nama'],$_POST['nokadic'],$_POST['notelefon'],$_POST['alamat'],$_POST['negeri'],$_POST['bandar'],$_POST['poskod']);

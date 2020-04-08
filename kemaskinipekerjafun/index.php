@@ -12,9 +12,14 @@
         $notelefon = $_POST['notelefonpekerja'];
         $katalaluan = $_POST['katalaluan'];
         $jenis = number_format($_POST['user-type']);
-        $dbquery = mysqli_query($dbcon,"UPDATE pekerja SET namapekerja='$nama',notelefonpekerja='$notelefon',katalaluanpekerja='$katalaluan',status='$jenis' WHERE idpekerja='$target'");
-        echo "<script>alert('Berjaya mengemaskini maklumat pekerja.')</script>";
-        echo '<script>window.location.href = "../kemaskinipekerja/";</script>';
+        $cmd = mysqli_query($dbcon,"UPDATE pekerja SET namapekerja='$nama',notelefonpekerja='$notelefon',katalaluanpekerja='$katalaluan',status='$jenis' WHERE idpekerja='$target'");
+        if ($cmd) {
+            echo "<script>alert('Berjaya mengemaskini maklumat pekerja.')</script>";
+            echo '<script>window.location.href = "../kemaskinipekerja/";</script>';
+        } else {
+            echo "<script>alert('Gagal mengemaskini maklumat pekerja.')</script>";
+            echo '<script>window.location.href = "../kemaskinipekerja/";</script>';
+        }
     }
 ?>
 <!DOCTYPE html>

@@ -12,11 +12,16 @@
                     $tempnum = rand(0,9);
                     $tempid = $tempid . $tempnum;
                 }
-                mysqli_query($dbcon, "INSERT INTO alamat values ('".$getData[3]."','".$getData[6]."','".$getData[5]."','".$getData[4]."')");
-                mysqli_query($dbcon, "INSERT INTO pembeli values ('$tempid','".$getData[0]."','".$getData[1]."','".$getData[2]."','".$getData[3]."')");
+                $cmd1 = mysqli_query($dbcon, "INSERT INTO alamat values ('".$getData[3]."','".$getData[6]."','".$getData[5]."','".$getData[4]."')");
+                $cmd2 = mysqli_query($dbcon, "INSERT INTO pembeli values ('$tempid','".$getData[0]."','".$getData[1]."','".$getData[2]."','".$getData[3]."')");
             }
-            echo "<script>alert('Berjaya mengimport maklumat pembeli.')</script>";
-            echo '<script>window.location.href = "../tambahpembeli/";</script>';
+            if ($cmd1 && $cmd2) {
+                echo "<script>alert('Berjaya mengimport maklumat pembeli.')</script>";
+                echo '<script>window.location.href = "../tambahpembeli/";</script>';
+            } else {
+                echo "<script>alert('Gagal mengimport maklumat pembeli.')</script>";
+                echo '<script>window.location.href = "../tambahpembeli/";</script>';
+            }
         }
     }
 ?>

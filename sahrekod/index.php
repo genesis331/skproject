@@ -31,13 +31,18 @@
                 $sum = $sum + $output['hargaantik'];
             }
             $tempid = generateID();
-            mysqli_query($dbcon, "INSERT INTO jualan values ('$tempid','$sum','$date','$pembeli','$penjual')");
+            $cmd = mysqli_query($dbcon, "INSERT INTO jualan values ('$tempid','$sum','$date','$pembeli','$penjual')");
             for($a = 0; $a <= count($antik) - 1; $a++) {
                 mysqli_query($dbcon, "INSERT INTO rekod values (NULL,'$tempid','$antik[$a]')");
                 $data1 = mysqli_query($dbcon,"UPDATE antik SET status='0' WHERE idantik='$antik[$a]'");
             }
-            echo "<script>alert('Berjaya menambah tempahan baru ke dalam sistem.')</script>";
-            echo '<script>window.location.href = "../tambahrekod";</script>';
+            if ($cmd) {
+                echo "<script>alert('Berjaya menambah tempahan baru ke dalam sistem.')</script>";
+                echo '<script>window.location.href = "../tambahrekod";</script>';
+            } else {
+                echo "<script>alert('Gagal menambah tempahan baru ke dalam sistem.')</script>";
+                echo '<script>window.location.href = "../tambahrekod";</script>';
+            }
         }
         insertDB();
     }

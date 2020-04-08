@@ -13,10 +13,15 @@
                     $tempnum = rand(0,9);
                     $tempid = $tempid . $tempnum;
                 }
-                $result = mysqli_query($dbcon, "INSERT INTO pekerja values ('$tempid','".$getData[0]."','".$getData[1]."','".$getData[2]."','".$getData[3]."')");
+                $cmd = mysqli_query($dbcon, "INSERT INTO pekerja values ('$tempid','".$getData[0]."','".$getData[1]."','".$getData[2]."','".$getData[3]."')");
             }
-            echo "<script>alert('Berjaya mengimport maklumat pekerja.')</script>";
-            echo '<script>window.location.href = "../tambahpembeli/";</script>';
+            if ($cmd) {
+                echo "<script>alert('Berjaya mengimport maklumat pekerja.')</script>";
+                echo '<script>window.location.href = "../tambahpembeli/";</script>';
+            } else {
+                echo "<script>alert('Gagal mengimport maklumat pekerja.')</script>";
+                echo '<script>window.location.href = "../tambahpembeli/";</script>';
+            }
         }
     }
 ?>

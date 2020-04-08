@@ -14,9 +14,14 @@
             if (mysqli_num_rows($result)) {
                 generateID();
             } else {
-                $set1 = mysqli_query($dbcon, "INSERT INTO antik values ('$tempid','$nama','$harga','$deskripsi','$tempatasal','1')");
-                echo "<script>alert('Berjaya menambah maklumat antik baru ke dalam sistem.')</script>";
-                echo '<script>window.location.href = "./";</script>';
+                $cmd1 = mysqli_query($dbcon, "INSERT INTO antik values ('$tempid','$nama','$harga','$deskripsi','$tempatasal','1')");
+                if ($cmd1) {
+                    echo "<script>alert('Berjaya menambah maklumat antik baru ke dalam sistem.')</script>";
+                    echo '<script>window.location.href = "./";</script>';
+                } else {
+                    echo "<script>alert('Gagal menambah maklumat antik baru ke dalam sistem.')</script>";
+                    echo '<script>window.location.href = "./";</script>';
+                }
             }
         }
         generateID($_POST['namaantik'],$_POST['hargaantik'],$_POST['tempatasal'],$_POST['deskripsi']);
