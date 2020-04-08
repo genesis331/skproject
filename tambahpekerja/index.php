@@ -1,8 +1,6 @@
 <?php
     session_start();
     require('../functions/dbcon.php');
-    // require("../functions/authcheck.php");
-    // require("../functions/permcheck.php");
     if (isset($_POST['namapekerja'])) {
         function generateID($nama,$notelefon,$katalaluan) {
             global $dbcon;
@@ -71,7 +69,9 @@
                     </div>
                 </div>
                 <div>
-                    <button class="zi-btn success submitbtn" onclick="return confirm('Tambah maklumat pekerja baru ke dalam sistem?');">TAMBAH DATA</button>
+                    <button class="zi-btn success submitbtn" onclick="return confirm('Tambah maklumat pekerja baru ke dalam sistem?');">
+                        TAMBAH DATA
+                    </button>
                 </div>
             </form>
         </div>
