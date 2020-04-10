@@ -34,6 +34,7 @@
                     </thead>
                     <tbody>
                         <?php
+                            // Dapat data dari pangkalan data dan tunjuk data dalam 'table'.
                             $data = mysqli_query($dbcon,"SELECT * FROM antik"); 
                             $no = 1;
                             while ($info = mysqli_fetch_array($data)) {

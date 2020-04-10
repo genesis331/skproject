@@ -2,9 +2,11 @@
     session_start();
     require('../functions/dbcon.php');
     require("../functions/authcheck.php");
+    // Jika butang 'submit' telah ditekan, tambah data ke dalam pangkalan data berdasarkan data baru dengan laksana INSERT.
     if (isset($_POST['namaantik'])) {
         function generateID($nama,$harga,$tempatasal,$deskripsi) {
             global $dbcon;
+            // Jana ID yang unik kepada rekod jualan sebagai kunci primer.
             $tempid = "A";
             for($i = 0; $i < 8; $i++) {
                 $tempnum = rand(0,9);

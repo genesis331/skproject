@@ -1,5 +1,6 @@
 <?php
     require('../functions/dbcon.php');
+    //Semak tahap pengguna sama ada boleh mengakses laman tertentu.
     if (isset($_SESSION['idpekerja'])) {
         $sessionid = $_SESSION['idpekerja'];
         $query = mysqli_query($dbcon, "SELECT * FROM pekerja WHERE idpekerja='$sessionid'");

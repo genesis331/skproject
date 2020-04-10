@@ -1,9 +1,11 @@
 <?php
     session_start();
     require('../functions/dbcon.php');
+    // Jika butang 'submit' telah ditekan, tambah data ke dalam pangkalan data berdasarkan data baru dengan laksana INSERT.
     if (isset($_POST['namapekerja'])) {
         function generateID($nama,$notelefon,$katalaluan) {
             global $dbcon;
+            // Jana ID yang unik kepada rekod jualan sebagai kunci primer.
             $tempid = "W";
             for($i = 0; $i < 5; $i++) {
                 $tempnum = rand(0,9);

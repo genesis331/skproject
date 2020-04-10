@@ -3,6 +3,7 @@
     require('../functions/dbcon.php');
     require("../functions/authcheck.php");
     error_reporting(0);
+    // Jika butang 'submit' telah ditekan, redirect ke laman sah rekod jualan.
     if (isset($_POST['submit'])) {
         $antikselect = "";
         for($i = 0; $i < 5; $i++) {

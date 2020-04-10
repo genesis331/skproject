@@ -2,7 +2,9 @@
     session_start();
     require('../functions/dbcon.php');
     require("../functions/authcheck.php");
+    // Jika butang 'submit' telah ditekan, tambah data ke dalam pangkalan data berdasarkan data baru dengan laksana INSERT.
     if (isset($_POST['submit'])) {
+        // Jana ID yang unik kepada rekod jualan sebagai kunci primer.
         function generateID() {
             global $dbcon;
             $tempid = "R";
@@ -17,6 +19,7 @@
                 return $tempid;
             }
         }
+        // Tambah data ke dalam pangkalan data.
         function insertDB() {
             global $dbcon;
             $date = $_GET['tarikh'];
@@ -34,6 +37,7 @@
             $cmd = mysqli_query($dbcon, "INSERT INTO jualan values ('$tempid','$sum','$date','$pembeli','$penjual')");
             for($a = 0; $a <= count($antik) - 1; $a++) {
                 mysqli_query($dbcon, "INSERT INTO rekod values (NULL,'$tempid','$antik[$a]')");
+                // Tetap status antik kepada 0 supaya barang antik tersebut tidak boleh dibeli lagi.
                 $data1 = mysqli_query($dbcon,"UPDATE antik SET status='0' WHERE idantik='$antik[$a]'");
             }
             if ($cmd) {
@@ -129,6 +133,7 @@
                     Jumlah Bayaran: 
                     <span>
                         <?php
+                            // Cari jumlah harga barang antik yang telah dipilih.
                             $sum = 0;
                             $antik = explode(',',$_GET['antik']);
                             for($i = 0; $i <= count($antik) - 1; $i++) {

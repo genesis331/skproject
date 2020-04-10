@@ -2,13 +2,14 @@
     require('./functions/dbcon.php');
     session_start();
     if (isset($_POST['namapekerja'])) {
-        $userid = $_POST['namapekerja'];
-        $userpw = $_POST['katalaluanpekerja'];
+        $idpengguna = $_POST['namapekerja'];
+        $katalaluanpengguna = $_POST['katalaluanpekerja'];
 
-        $dbquery = mysqli_query($dbcon,"SELECT * FROM pekerja WHERE namapekerja='$userid' AND katalaluanpekerja='$userpw'");
+        $dbquery = mysqli_query($dbcon,"SELECT * FROM pekerja WHERE namapekerja='$idpengguna' AND katalaluanpekerja='$katalaluanpengguna'");
         $row = mysqli_fetch_assoc($dbquery);
 
-        if (mysqli_num_rows($dbquery) == 0 || $row['katalaluanpekerja'] != $userpw) {
+        //Jika terdapatnya hasil daripada SQL query, redirect ke laman utama sistem dan menetap $_SESSION.
+        if (mysqli_num_rows($dbquery) == 0 || $row['katalaluanpekerja'] != $katalaluanpengguna) {
             echo "<script>alert('ID pengguna atau kata laluan adalah salah.')</script>";
         } else {
             $_SESSION['idpekerja'] = $row['idpekerja'];

@@ -67,6 +67,8 @@
                     </thead>
                     <tbody id="tbody">
                         <script>
+                            // Tukar data yang ditunjuk di dalam 'table' sekiranya bulan jualan ditukar oleh pengguna.
+                            // Fungsi ini mendapatkan data yang diambil oleh PHP dari pangkalan data untuk menjana elemen dengan element.createElement() lalu dimasukkan ke dalam 'table' dengan element.appendChild().
                             let jumlahbulanan = 0;
                             function updateDisplay(data,data1,data2,data3,data4) {
                                 document.getElementById('tbody').innerHTML = "";
@@ -123,6 +125,7 @@
                             }
                         </script>
                         <?php
+                            // Dapat data dari pangkalan data lalu hantar ke JavaScript untuk meneruskan fungsi tunjuk data.
                             $data = mysqli_query($dbcon,"SELECT * FROM jualan");
                             while ($info = mysqli_fetch_array($data)) {
                                 $result[] = $info;
@@ -160,6 +163,7 @@
                 </div>
                 <div class="print-btn-sec">
                     <script>
+                        // Memanggil window.open() untuk tunjuk laman versi cetak untuk dicetak.
                         function jumpToPrint() {
                             let target = document.getElementById('month-selection').value;
                             window.open("../cetakjualan?targetmonth=" + target); 

@@ -3,6 +3,7 @@
     require('./dbcon.php');
     require("./authcheck.php");
     require("./permcheck.php");
+    // Dapat .csv fail dengan fgetcsv() lalu laksana INSERT bagi setiap rekod yang didapati dalam fail tersebut.
     if(isset($_FILES['datafile'])) {
         $filename = $_FILES['datafile']['tmp_name'];
         if ($_FILES['datafile']['size'] > 0) {

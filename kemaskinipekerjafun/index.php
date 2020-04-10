@@ -7,6 +7,7 @@
     $data = mysqli_query($dbcon, "SELECT * FROM pekerja WHERE idpekerja='$target'");
     $info = mysqli_fetch_array($data);
 
+    // Jika butang 'submit' telah ditekan, kemaskini data dalam pangkalan data berdasarkan data baru dengan laksana UPDATE.
     if (isset($_POST['update'])) {
         $nama = $_POST['namapekerja'];
         $notelefon = $_POST['notelefonpekerja'];

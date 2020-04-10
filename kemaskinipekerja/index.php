@@ -35,6 +35,7 @@
                     </thead>
                     <tbody>
                         <?php
+                            // Dapat data dari pangkalan data dan tunjuk data dalam 'table'.
                             $data = mysqli_query($dbcon,"SELECT * FROM pekerja"); 
                             while ($info = mysqli_fetch_array($data)) {
                         ?>

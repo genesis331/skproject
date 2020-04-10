@@ -27,6 +27,7 @@
                 LAPORAN BULANAN SISTEM PENGURUSAN JUALAN ANTIK ANTIQUA - 
                 <span>
                     <?php
+                        // Dapat bulan jualan yang ingin dicetak.
                         switch($_GET['targetmonth']) {
                             case "01" : echo "JANUARI"; break;
                             case "02" : echo "FEBRUARI"; break;
@@ -60,6 +61,8 @@
                     </thead>
                     <tbody id="tbody">
                         <script>
+                            // Tukar data yang ditunjuk di dalam 'table' sekiranya bulan jualan ditukar oleh pengguna.
+                            // Fungsi ini mendapatkan data yang diambil oleh PHP dari pangkalan data untuk menjana elemen dengan element.createElement() lalu dimasukkan ke dalam 'table' dengan element.appendChild().
                             function updateDisplay(data,data1,data2,data3,data4) {
                                 document.getElementById('tbody').innerHTML = "";
                                 jualandata = data;
@@ -113,6 +116,7 @@
                             }
                         </script>
                         <?php
+                            // Dapat data dari pangkalan data lalu hantar ke JavaScript untuk meneruskan fungsi tunjuk data.
                             $data = mysqli_query($dbcon,"SELECT * FROM jualan");
                             while ($info = mysqli_fetch_array($data)) {
                                 $result[] = $info;
@@ -146,6 +150,7 @@
             </div>
         </div>
         <script>
+            // Memanggil window.print() sekiranya laman web ini telah diakses untuk menunjukkan Print Dialog Box.
             window.onload = function() {
                 window.print();
             }
