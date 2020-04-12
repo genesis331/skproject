@@ -43,7 +43,7 @@
                         <tr>
                             <td><?php echo $info['namaantik'];?></td>
                             <td><?php echo $info['idantik'];?></td>
-                            <td><?php echo $info['hargaantik'];?></td>
+                            <td><?php echo 'RM '.$info['hargaantik'];?></td>
                             <th><?php echo $info['penjelasanantik'];?></th>
                             <td>
                                 <a href="../kemaskinistokfun/index.php?index=<?php echo $info['idantik'];?>">

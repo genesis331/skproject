@@ -64,8 +64,8 @@
                     <label>Jenis pekerja:</label>
                     <div class="zi-select-container">
                         <select class="zi-select" id="user-type-selection" name="user-type">
-                            <option value="1">ADMIN</option>
                             <option value="0">PEKERJA</option>
+                            <option value="1">ADMIN</option>
                         </select>
                         <i class="arrow zi-icon-up"></i>
                     </div>

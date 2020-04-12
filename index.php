@@ -10,7 +10,7 @@
 
         //Jika terdapatnya hasil daripada SQL query, redirect ke laman utama sistem dan menetap $_SESSION.
         if (mysqli_num_rows($dbquery) == 0 || $row['katalaluanpekerja'] != $katalaluanpengguna) {
-            echo "<script>alert('ID pengguna atau kata laluan adalah salah.')</script>";
+            echo "<script>alert('Nama pengguna atau kata laluan adalah salah.')</script>";
         } else {
             $_SESSION['idpekerja'] = $row['idpekerja'];
             $admin = $_SESSION['idpekerja'];
