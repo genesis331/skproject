@@ -7,13 +7,13 @@
     <head>
         <meta charset="utf-8">
         <title>Sistem Pengurusan Jualan Antik Antiqua</title>
-        <link rel="icon" href="../node_modules/@zeit-ui/style/dist/assets/favicon.ico">
+        <link rel="icon" href="../assets/favicon.ico">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="../node_modules/@zeit-ui/style/dist/style.css">
+        <link rel="stylesheet" href="../style/style.css">
         <link rel="stylesheet" href="../style/global.css">
         <link rel="stylesheet" href="../style/main.css">
     </head>
-    <body class="zi-main zi-dark-theme">
+    <body class="zi-main">
         <?php include("../components/header.php");?>
         <?php include("../components/menuoverlay.php");?>
         <div class="main-content">

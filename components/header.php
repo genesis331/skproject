@@ -3,7 +3,7 @@
         height: 7rem;
         width: 100%;
         display: grid;
-        grid-template-columns: 80% 20%;
+        grid-template-columns: 60% 30% 10%;
         user-select: none;
         z-index: 9;
     }
@@ -26,6 +26,10 @@
         text-align: right;
     }
 
+    .header-sec3 {
+        text-align: right;
+    }
+
     .zi-popover {
         position: relative;
         top: 50%;
@@ -34,9 +38,16 @@
         z-index: 10;
     }
 
-    .header-sec2 img {
-        height: 2rem;
+    .header-sec3 i {
         cursor: pointer;
+    }
+
+    .zi-popover-host {
+        line-height: initial;
+    }
+
+    .zi-popover-host i {
+        font-size: 1.8rem;
     }
 
     .zi-popover-item {
@@ -57,12 +68,24 @@
     }
 
     .customization-op-sec {
-        padding: 2px 14px;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
     }
 
-    .customization-op img {
-        height: 1.5rem;
-        padding: 0.5rem;
+    .customization-op-sec i {
+        vertical-align: middle;
+        font-size: 1.5rem;
+    }
+
+    .zi-toggle {
+        vertical-align: middle;
+        transition-timing-function: unset;
+    }
+
+    .zi-toggle::before {
+        transition-timing-function: unset;
+        transition-duration: unset;
     }
 </style>
 <script>
@@ -79,15 +102,55 @@
         }
     }
 
-    let currentSize = 14;
+    let fontSizeCookie;
+    let currentSize;
     function zoomIn() {
         document.getElementsByTagName('html')[0].style.fontSize = currentSize + 1 + "px";
         currentSize++;
+        localStorage.setItem("antikFontSize", currentSize);
     }
 
     function zoomOut() {
         document.getElementsByTagName('html')[0].style.fontSize = currentSize - 1 + "px";
         currentSize--;
+        localStorage.setItem("antikFontSize", currentSize);
+    }
+
+    let darkModeCookie;
+    let currentDarkModeStatus;
+    function toggleDarkMode() {
+        if (currentDarkModeStatus) {
+            currentDarkModeStatus = false;
+            localStorage.setItem("antikDarkMode", false);
+            document.getElementById('zi-toggle').classList.remove('checked');
+            document.getElementsByTagName('body')[0].classList.remove('zi-dark-theme');
+        } else {
+            currentDarkModeStatus = true;
+            localStorage.setItem("antikDarkMode", true);
+            document.getElementById('zi-toggle').classList.add('checked');
+            document.getElementsByTagName('body')[0].classList.add('zi-dark-theme');
+        }
+    }
+
+    window.onload = function() {
+        fontSizeCookie = localStorage.getItem("antikFontSize");
+        darkModeCookie = localStorage.getItem("antikDarkMode");
+        if (!fontSizeCookie) {
+            currentSize = 14;
+            localStorage.setItem("antikFontSize", 14);
+            document.getElementsByTagName('html')[0].style.fontSize = currentSize + "px";
+        } else {
+            currentSize = parseInt(fontSizeCookie);
+            document.getElementsByTagName('html')[0].style.fontSize = currentSize + "px";
+        }
+        if (darkModeCookie == undefined || darkModeCookie == "false") {
+            currentDarkModeStatus = false;
+            localStorage.setItem("antikDarkMode", false);
+        } else {
+            currentDarkModeStatus = darkModeCookie;
+            document.getElementById('zi-toggle').classList.add('checked');
+            document.getElementsByTagName('body')[0].classList.add('zi-dark-theme');
+        }
     }
 </script>
 <div class="header-sec">
@@ -95,10 +158,18 @@
         <h3><a href="../main/">Sistem Pengurusan Jualan Antik Antiqua</a></h3>
     </div>
     <div class="header-sec2">
+        <div class="customization-op-sec">
+            <i class="zi-icon-zoom-in" style="padding: 0.5rem 0.2rem 0.5rem 0.2rem; cursor: pointer;" onclick="zoomIn();"></i>
+            <i class="zi-icon-zoom-out" style="padding: 0.5rem 0.2rem 0.5rem 0.2rem; cursor: pointer;" onclick="zoomOut();"></i>
+            <i class="zi-icon-moon" style="padding: 0.5rem 0.2rem 0.5rem 1.5rem;"></i>
+            <div class="zi-toggle" id="zi-toggle" onclick="toggleDarkMode();"></div>
+        </div>
+    </div>
+    <div class="header-sec3">
         <div class="zi-popover">
-            <span class="zi-popover-host" onclick="toggleMenu();">
-                <img src="../assets/images/menu.svg">
-            </span>
+            <div class="zi-popover-host" onclick="toggleMenu();">
+                <i class="zi-icon-menu"></i>
+            </div>
             <div class="zi-popover-dropdown right" id="zi-popover-dropdown">
                 <a href="../tambahpekerja/"><div class="zi-popover-item">Tambah Pekerja</div></a>
                 <a href="../kemaskinipekerja/"><div class="zi-popover-item">Kemaskini Pekerja</div></a>
@@ -109,14 +180,6 @@
                 <a href="../semakpembeli/"><div class="zi-popover-item">Semak Pembeli</div></a>
                 <a href="../functions/logkeluar.php"><div class="zi-popover-item">Log Keluar</div></a>
                 <br/>
-                <div class="customization-op-sec">
-                    <a class="customization-op" onclick="zoomIn();">
-                        <img src="../assets/images/zoom-in.svg"/>
-                    </a>
-                    <a class="customization-op" onclick="zoomOut();">
-                        <img src="../assets/images/zoom-out.svg"/>
-                    </a>
-                </div>
             </div>
         </div>
     </div>
