@@ -82,11 +82,11 @@
                             <option value="SABAH">SABAH</option>
                             <option value="SARAWAK">SARAWAK</option>
                         </select>
-                        <i class="arrow zi-icon-up"></i>
+                        <i class="arrow zi-icon-chevron-down"></i>
                     </div>
                     <div class="zi-select-container">
                         <select class="zi-select" name="bandar" id="bandar-selection"></select>
-                        <i class="arrow zi-icon-up"></i>
+                        <i class="arrow zi-icon-chevron-down"></i>
                     </div>
                     <div class="zi-input-group address-input-group">
                         <input class="zi-input address-input" placeholder="Poskod" name="poskod" required>
@@ -165,14 +165,12 @@
                 }
             }
 
-            window.onload = function() {
-                let optionparent = document.getElementById('bandar-selection');
-                for (let i = 0; i <= pahang.length - 1; i++) {
-                    var opt = document.createElement('option');
-                    opt.appendChild(document.createTextNode(pahang[i]));
-                    opt.value = pahang[i]; 
-                    optionparent.appendChild(opt);
-                }
+            let optionparent = document.getElementById('bandar-selection');
+            for (let i = 0; i <= pahang.length - 1; i++) {
+                var opt = document.createElement('option');
+                opt.appendChild(document.createTextNode(pahang[i]));
+                opt.value = pahang[i]; 
+                optionparent.appendChild(opt);
             }
         </script>
     </body>

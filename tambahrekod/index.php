@@ -51,7 +51,7 @@
                                 <option value="<?php echo $info['idantik'];?>"><?php echo $info['namaantik'];?></option>
                                 <?php }}?>
                             </select>
-                            <i class="arrow zi-icon-up"></i>
+                            <i class="arrow zi-icon-chevron-down"></i>
                         </div>
                     </div>
                     <div class="zi-input-group">
@@ -67,7 +67,7 @@
                             <option value="<?php echo $info['idpembeli'];?>"><?php echo $info['namapembeli'];?></option>
                             <?php }?>
                         </select>
-                        <i class="arrow zi-icon-up"></i>
+                        <i class="arrow zi-icon-chevron-down"></i>
                     </div>
                 </div>
                 <div>
@@ -92,7 +92,7 @@
                     appendIndex++;
                     elem.appendChild(elem2);
                     let elem3 = document.createElement('i');
-                    elem3.className = "arrow zi-icon-up";
+                    elem3.className = "arrow zi-icon-chevron-down";
                     elem.appendChild(elem3);
                     for (let i = 0; i <= document.getElementById('antik-selection').length - 1; i++) {
                         let elem4 = document.createElement('option');

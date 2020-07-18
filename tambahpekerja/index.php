@@ -67,7 +67,7 @@
                             <option value="0">PEKERJA</option>
                             <option value="1">ADMIN</option>
                         </select>
-                        <i class="arrow zi-icon-up"></i>
+                        <i class="arrow zi-icon-chevron-down"></i>
                     </div>
                 </div>
                 <div>

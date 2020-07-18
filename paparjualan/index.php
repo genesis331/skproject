@@ -47,7 +47,7 @@
                         <option value="11">November</option>
                         <option value="12">Disember</option>
                     </select>
-                    <i class="arrow zi-icon-up"></i>
+                    <i class="arrow zi-icon-chevron-down"></i>
                 </div>
                 </form>
             </div>

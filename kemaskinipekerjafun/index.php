@@ -61,7 +61,7 @@
                             <option <?php if ($info['status'] == 1 ) echo 'selected';?> value="1">ADMIN</option>
                             <option <?php if ($info['status'] == 0 ) echo 'selected';?> value="0">PEKERJA</option>
                         </select>
-                        <i class="arrow zi-icon-up"></i>
+                        <i class="arrow zi-icon-chevron-down"></i>
                     </div>
                 </div>
                 <div>
