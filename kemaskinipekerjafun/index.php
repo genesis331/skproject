@@ -48,11 +48,11 @@
                     </div>
                     <br>
                     <div class="zi-input-group prefix">
-                        <input class="zi-input" placeholder="Nombor Telefon Pekerja" name="notelefonpekerja" required type="tel" value="<?php echo $info['notelefonpekerja'];?>">
+                        <input class="zi-input" placeholder="Nombor Telefon Pekerja" name="notelefonpekerja" required type="tel" value="<?php echo $info['notelefonpekerja'];?>" minlength="10" maxlength="12">
                     </div>
                     <br>
                     <div class="zi-input-group prefix">
-                        <input class="zi-input" placeholder="Kata Laluan Akaun Pekerja" name="katalaluan" required value="<?php echo $info['katalaluanpekerja'];?>">
+                        <input class="zi-input" placeholder="Kata Laluan Akaun Pekerja" name="katalaluan" required value="<?php echo $info['katalaluanpekerja'];?>" minlength="8" maxlength="30">
                     </div>
                     <br><br>
                     <label>Jenis pekerja:</label>

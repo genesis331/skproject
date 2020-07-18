@@ -54,11 +54,11 @@
                     </div>
                     <br>
                     <div class="zi-input-group">
-                        <input class="zi-input" placeholder="Nombor Telefon Pekerja" name="notelefonpekerja" required type="tel">
+                        <input class="zi-input" placeholder="Nombor Telefon Pekerja" name="notelefonpekerja" required type="tel" minlength="10" maxlength="12">
                     </div>
                     <br>
                     <div class="zi-input-group">
-                        <input class="zi-input" placeholder="Kata Laluan Akaun Pekerja" name="katalaluan" required>
+                        <input class="zi-input" placeholder="Kata Laluan Akaun Pekerja" name="katalaluan" required minlength="8" maxlength="30">
                     </div>
                     <br><br>
                     <label>Jenis pekerja:</label>

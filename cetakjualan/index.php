@@ -20,11 +20,11 @@
             let pekerjadata;
             let pembelidata;
         </script>
-        <?php include("../components/header.php");?>
+        <?php include("../components/headercetak.php");?>
         <?php include("../components/menuoverlay.php");?>
         <div class="title2">
             <div class="title-display-sec">
-                LAPORAN BULANAN SISTEM PENGURUSAN JUALAN ANTIK ANTIQUA - 
+                LAPORAN BULANAN SISTEM PENGURUSAN JUALAN ANTIK ANTIQUA - BULAN 
                 <span>
                     <?php
                         // Dapat bulan jualan yang ingin dicetak.
