@@ -40,31 +40,29 @@
                                 $filename = $_FILES['datafile']['tmp_name'];
                                 if ($_FILES['datafile']['size'] > 0) {
                                     $file = fopen($filename, "r");
-                                    $csvArray = array_map('str_getcsv', file($filename));
+                                    $csvArray = str_getcsv(file_get_contents($filename),"\n");
                                     array_shift($csvArray);
                                     $_SESSION['csvImport'] = $csvArray;
                                     for($counter = 0; $counter < count($csvArray); $counter++){
                                         echo('<tr>');
-                                        for($counter2 = 0; $counter2 < count($csvArray[0]); $counter2++){
-                                            $data = explode("|",strval($csvArray[$counter][$counter2]));
-                                            for($counter3 = 0; $counter3 < count($data); $counter3++) {
-                                                echo('<td>');
-                                                if ($counter3 == 3) {
-                                                    if ($data[$counter3] == 0) {
-                                                        echo('PEKERJA');
-                                                    } else if ($data[$counter3] == 1) {
-                                                        echo('ADMIN');
-                                                    }
-                                                } else {
-                                                    echo($data[$counter3]);
+                                        $data = explode("|",$csvArray[$counter]);
+                                        for($counter2 = 0; $counter2 < count($data); $counter2++){
+                                            echo('<td>');
+                                            if ($counter2 == 3) {
+                                                if ($data[$counter2] == 0) {
+                                                    echo('PEKERJA');
+                                                } else if ($data[$counter2] == 1) {
+                                                    echo('ADMIN');
                                                 }
-                                                echo('</td>');
+                                            } else {
+                                                echo($data[$counter2]);
                                             }
+                                            echo('</td>');
                                         }
                                         echo('</tr>');
                                     }
                                 }
-                            } 
+                            }
                         ?>
                     </tbody>
                 </table>

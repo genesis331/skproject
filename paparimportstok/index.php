@@ -40,18 +40,16 @@
                                 $filename = $_FILES['datafile']['tmp_name'];
                                 if ($_FILES['datafile']['size'] > 0) {
                                     $file = fopen($filename, "r");
-                                    $csvArray = array_map('str_getcsv', file($filename));
+                                    $csvArray = str_getcsv(file_get_contents($filename),"\n");
                                     array_shift($csvArray);
                                     $_SESSION['csvImport'] = $csvArray;
                                     for($counter = 0; $counter < count($csvArray); $counter++){
                                         echo('<tr>');
-                                        for($counter2 = 0; $counter2 < count($csvArray[0]); $counter2++){
-                                            $data = explode("|",strval($csvArray[$counter][$counter2]));
-                                            for($counter3 = 0; $counter3 < count($data); $counter3++) {
-                                                echo('<td>');
-                                                echo($data[$counter3]);
-                                                echo('</td>');
-                                            }
+                                        $data = explode("|",$csvArray[$counter]);
+                                        for($counter2 = 0; $counter2 < count($data); $counter2++){
+                                            echo('<td>');
+                                            echo($data[$counter2]);
+                                            echo('</td>');
                                         }
                                         echo('</tr>');
                                     }

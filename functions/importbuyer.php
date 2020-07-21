@@ -8,20 +8,18 @@
         $promiseAllCount = count($csvArray);
         $promiseStatus = array();
         for($counter = 0; $counter < count($csvArray); $counter++){
-            for($counter2 = 0; $counter2 < count($csvArray[0]); $counter2++){
-                $data = explode("|",strval($csvArray[$counter][$counter2]));
-                $tempid = "B";
-                for($i = 0; $i < 5; $i++) {
-                    $tempnum = rand(0,9);
-                    $tempid = $tempid . $tempnum;
-                }
-                $cmd1 = mysqli_query($dbcon, "INSERT INTO alamat values ('".$data[3]."','".$data[6]."','".$data[5]."','".$data[4]."')");
-                $cmd2 = mysqli_query($dbcon, "INSERT INTO pembeli values ('$tempid','".$data[0]."','".$data[1]."','".$data[2]."','".$data[3]."')");
-                if ($cmd1 && $cmd2) {
-                    array_push($promiseStatus, true);
-                } else {
-                    array_push($promiseStatus, false);
-                }
+            $data = explode("|",$csvArray[$counter]);
+            $tempid = "B";
+            for($i = 0; $i < 5; $i++) {
+                $tempnum = rand(0,9);
+                $tempid = $tempid . $tempnum;
+            }
+            $cmd1 = mysqli_query($dbcon, "INSERT INTO alamat values ('".$data[3]."','".$data[6]."','".$data[5]."','".$data[4]."')");
+            $cmd2 = mysqli_query($dbcon, "INSERT INTO pembeli values ('$tempid','".$data[0]."','".$data[1]."','".$data[2]."','".$data[3]."')");
+            if ($cmd1 && $cmd2) {
+                array_push($promiseStatus, true);
+            } else {
+                array_push($promiseStatus, false);
             }
         }
         while(count($promiseStatus) == $promiseAllCount) {
