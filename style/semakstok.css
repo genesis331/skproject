@@ -12,3 +12,8 @@
     min-width: 6rem;
     margin: 0.1rem;
 }
+
+.extra-btn {
+    text-align: left;
+    padding-top: 3rem;
+}

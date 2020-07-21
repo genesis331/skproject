@@ -57,6 +57,9 @@
                         <?php }}?>
                     </tbody>
                 </table>
+                <div class="extra-btn">
+                    <a href="../tambahstok/"><button class="zi-btn add-buyer-btn">Tambah Stok</button></a>
+                </div>
             </div>
         </div>
     </body>

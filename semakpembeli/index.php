@@ -55,6 +55,9 @@
                         <?php }?>
                     </tbody>
                 </table>
+                <div class="extra-btn">
+                    <a href="../tambahpembeli/"><button class="zi-btn add-buyer-btn">Tambah Pembeli</button></a>
+                </div>
             </div>
         </div>
     </body>
