@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="../style/main.css">
     </head>
     <body class="zi-main">
-        <?php include("../components/header.php");?>
+        <?php $headerOpenStatus=true; include("../components/header.php");?>
         <?php include("../components/menuoverlay.php");?>
         <div class="main-content">
             <div class="indi">

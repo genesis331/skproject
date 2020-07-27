@@ -132,6 +132,13 @@
         }
     }
 
+    function confirmLogOut() {
+        let prompt = window.confirm('Anda akan log keluar dari sistem.');
+        if (prompt) {
+            window.location.href = "../functions/logkeluar.php";
+        }
+    }
+
     window.onload = function() {
         fontSizeCookie = localStorage.getItem("antikFontSize");
         darkModeCookie = localStorage.getItem("antikDarkMode");
@@ -170,7 +177,7 @@
             <div class="zi-popover-host" onclick="toggleMenu();">
                 <i class="zi-icon-menu"></i>
             </div>
-            <div class="zi-popover-dropdown right" id="zi-popover-dropdown">
+            <div class='<?php if($headerOpenStatus) {echo "zi-popover-dropdown right active";} else {echo "zi-popover-dropdown right";}; ?>' id="zi-popover-dropdown">
                 <a href="../tambahpekerja/"><div class="zi-popover-item">Tambah Pekerja</div></a>
                 <a href="../kemaskinipekerja/"><div class="zi-popover-item">Kemaskini Pekerja</div></a>
                 <a href="../tambahstok/"><div class="zi-popover-item">Tambah Stok</div></a>
@@ -178,7 +185,7 @@
                 <a href="../tambahrekod/"><div class="zi-popover-item">Rekod Jualan</div></a>
                 <a href="../paparjualan/"><div class="zi-popover-item">Papar Jualan</div></a>
                 <a href="../semakpembeli/"><div class="zi-popover-item">Semak Pembeli</div></a>
-                <a href="../functions/logkeluar.php"><div class="zi-popover-item">Log Keluar</div></a>
+                <div onclick="confirmLogOut();" class="zi-popover-item" style="font-weight: 700">Log Keluar</div>
                 <br/>
             </div>
         </div>

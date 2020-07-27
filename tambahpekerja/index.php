@@ -18,8 +18,14 @@
                 $jenis = number_format($_POST['user-type']);
                 $cmd = mysqli_query($dbcon, "INSERT INTO pekerja values ('$tempid','$nama','$notelefon','$katalaluan','$jenis')");
                 if ($cmd) {
-                    echo "<script>alert('Berjaya menambah maklumat pekerja baru ke dalam sistem.')</script>";
-                    echo '<script>window.location.href = "./";</script>';
+                    if($_GET['redirectStatus']) {
+                        echo "<script>alert('Berjaya menambah maklumat pekerja baru ke dalam sistem dan akan log masuk ke dalam sistem secara automatik.')</script>";
+                        $_SESSION['idpekerja'] = $nama;
+                        echo '<script>window.location.href = "../main";</script>';
+                    } else {
+                        echo "<script>alert('Berjaya menambah maklumat pekerja baru ke dalam sistem.')</script>";
+                        echo '<script>window.location.href = "./";</script>';
+                    }
                 } else {
                     echo "<script>alert('Gagal menambah maklumat pekerja baru ke dalam sistem.')</script>";
                     echo '<script>window.location.href = "./";</script>';
@@ -58,7 +64,7 @@
                     </div>
                     <br>
                     <div class="zi-input-group">
-                        <input class="zi-input" placeholder="Kata Laluan Akaun Pekerja" name="katalaluan" required minlength="8" maxlength="30">
+                        <input class="zi-input" placeholder="Kata Laluan (8 hingga 30 patah perkataan)" name="katalaluan" required minlength="8" maxlength="30">
                     </div>
                     <br><br>
                     <label>Jenis pekerja:</label>
