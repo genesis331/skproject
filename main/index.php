@@ -18,6 +18,8 @@
         <?php include("../components/menuoverlay.php");?>
         <div class="main-content">
             <div class="indi">
+                <i class="zi-icon-home" style="font-size: 3rem"></i>
+                <br/>
                 Sila pilih laman yang dikehendaki dari menu sistem.
             </div>
         </div>

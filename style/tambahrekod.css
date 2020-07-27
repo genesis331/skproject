@@ -31,8 +31,12 @@
     margin-left: 15rem;
 }
 
-.add-buyer-btn {
-    min-width: 5rem;
+.add-item-btn, .remove-item-btn {
+    min-width: initial;
+}
+
+.add-item-btn i, .remove-item-btn i {
+    font-size: 1.4rem !important;
 }
 
 .extra-btn {

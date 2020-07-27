@@ -169,7 +169,7 @@
                             window.open("../cetakjualan?targetmonth=" + target); 
                         }
                     </script>
-                    <button class="zi-btn action-btn" onclick="jumpToPrint();">CETAK</button>
+                    <button class="zi-btn action-btn" onclick="jumpToPrint();"><i class="prefix zi-icon-printer"></i>CETAK</button>
                 </div>
             </div>
         </div>

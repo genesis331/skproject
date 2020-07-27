@@ -45,3 +45,8 @@ body, html {
 .title-select-sec {
     text-align: right;
 }
+
+.prefix {
+    font-size: 1.3rem !important;
+    left: 1rem !important;
+}

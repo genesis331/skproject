@@ -78,13 +78,14 @@
                 </div>
                 <div>
                     <button class="zi-btn success submitbtn" onclick="return confirm('Tambah maklumat pekerja baru ke dalam sistem?');">
+                        <i class="prefix zi-icon-plus"></i>    
                         TAMBAH DATA
                     </button>
                 </div>
             </form>
         </div>
         <div class="importbtn-sec">
-            atau <button class="zi-btn importbtn" onclick="getInputFile();">IMPORT DATA</button>
+            atau <button class="zi-btn importbtn" onclick="getInputFile();"><i class="prefix zi-icon-upload"></i>IMPORT DATA</button>
             <form method="POST" action="../paparimportpekerja/index.php" enctype="multipart/form-data">
                 <input class="file-input" id="file-input" type="file" name="datafile" onchange="this.form.submit();">
             </form>

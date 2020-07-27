@@ -47,10 +47,10 @@
                             <th><?php echo $info['penjelasanantik'];?></th>
                             <td>
                                 <a href="../kemaskinistokfun/index.php?index=<?php echo $info['idantik'];?>">
-                                    <button class="zi-btn action-btn">KEMASKINI</button>
+                                    <button class="zi-btn action-btn"><i class="prefix zi-icon-edit-2"></i>KEMASKINI</button>
                                 </a>
                                 <a href="../functions/hapusantik.php?index=<?php echo $info['idantik'];?>" onclick="return confirm('Hapus maklumat stok dari sistem?');">
-                                    <button class="zi-btn action-btn">HAPUS</button>
+                                    <button class="zi-btn action-btn"><i class="prefix zi-icon-trash"></i>HAPUS</button>
                                 </a>
                             </td>
                         </tr>
@@ -58,7 +58,7 @@
                     </tbody>
                 </table>
                 <div class="extra-btn">
-                    <a href="../tambahstok/"><button class="zi-btn add-buyer-btn">Tambah Stok</button></a>
+                    <a href="../tambahstok/"><button class="zi-btn add-buyer-btn"><i class="prefix zi-icon-plus"></i>Tambah Stok</button></a>
                 </div>
             </div>
         </div>

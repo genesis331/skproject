@@ -48,7 +48,7 @@
                             <th><?php echo $info['alamat'] . ", " . $info['bandar'] . ", " . $info['poskod'] . ", " . $info['negeri'];?></th>
                             <td>
                                 <a href="../functions/hapuspembeli.php?index=<?php echo $info['idpembeli'];?>">
-                                    <button class="zi-btn action-btn" onclick="return confirm('Hapus maklumat pembeli dari sistem?');">HAPUS</button>
+                                    <button class="zi-btn action-btn" onclick="return confirm('Hapus maklumat pembeli dari sistem?');"><i class="prefix zi-icon-trash"></i>HAPUS</button>
                                 </a>
                             </td>
                         </tr>
@@ -56,7 +56,7 @@
                     </tbody>
                 </table>
                 <div class="extra-btn">
-                    <a href="../tambahpembeli/"><button class="zi-btn add-buyer-btn">Tambah Pembeli</button></a>
+                    <a href="../tambahpembeli/"><button class="zi-btn add-buyer-btn"><i class="prefix zi-icon-plus"></i>Tambah Pembeli</button></a>
                 </div>
             </div>
         </div>

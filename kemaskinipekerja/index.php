@@ -54,10 +54,10 @@
                             <td><?php echo $info['katalaluanpekerja'];?></td>
                             <td>
                                 <a href="../kemaskinipekerjafun/index.php?index=<?php echo $info['idpekerja'];?>">
-                                    <button class="zi-btn action-btn">KEMASKINI</button>
+                                    <button class="zi-btn action-btn"><i class="prefix zi-icon-edit-2"></i>KEMASKINI</button>
                                 </a>
                                 <a href="../functions/hapuspekerja.php?index=<?php echo $info['idpekerja'];?>" onclick="return confirm('Hapus maklumat pekerja dari sistem?');">
-                                    <button class="zi-btn action-btn">HAPUS</button>
+                                    <button class="zi-btn action-btn"><i class="prefix zi-icon-trash"></i>HAPUS</button>
                                 </a>
                             </td>
                         </tr>

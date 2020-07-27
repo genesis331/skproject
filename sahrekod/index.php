@@ -148,7 +148,7 @@
                 </div>
                 <form method="POST" class="submit-form">
                     <div class="submit-sec">
-                        <button class="zi-btn confirm-btn success" name="submit">TAMBAH REKOD</button>
+                        <button class="zi-btn confirm-btn success" name="submit" onclick="return confirm('Tambah rekod baru ke dalam sistem?');">TAMBAH REKOD</button>
                     </div>
                 </form>
             </div>

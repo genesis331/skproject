@@ -2,7 +2,7 @@
     font-size: 1rem;
     position: absolute;
     top: 50%;
-    transform: translateY(-140%);
+    transform: translateY(-100%);
     width: 100%;
     text-align: center;
 }

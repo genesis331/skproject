@@ -68,7 +68,7 @@
                 </table>
                 <div class="print-btn-sec">
                     <form method="POST" action="../functions/importuser.php">
-                        <button class="zi-btn action-btn">IMPORT</button>
+                        <button class="zi-btn action-btn"><i class="prefix zi-icon-upload"></i>IMPORT</button>
                     </form>
                 </div>
             </div>

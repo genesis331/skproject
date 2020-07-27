@@ -41,7 +41,7 @@
             <form class="login-form" method="POST" autocomplete="off">
                 <div>
                     <div id="item-selection-sec">
-                        <div class="zi-select-container">
+                        <div class="zi-select-container" id="select0">
                             <select class="zi-select" id="antik-selection" name="antik-selection0">
                                 <?php
                                     $data = mysqli_query($dbcon,"SELECT * FROM antik");
@@ -54,6 +54,8 @@
                             <i class="arrow zi-icon-chevron-down"></i>
                         </div>
                     </div>
+                    <button class="zi-btn add-item-btn" id="add-item-btn" onclick="appendInput(); return false;"><i class="zi-icon-plus"></i></button>
+                    <button class="zi-btn disabled remove-item-btn" id="remove-item-btn" onclick="removeInput(); return false;"><i class="zi-icon-minus"></i></button>
                     <div class="zi-input-group">
                         <input class="zi-input" placeholder="Tarikh Jualan" name="tarikhjualan" required type="date" value="<?php echo date('Y-m-d') ?>">
                     </div>
@@ -71,12 +73,11 @@
                     </div>
                 </div>
                 <div>
-                    <button class="zi-btn success submitbtn" name="submit" onclick="return confirm('Tambah rekod baru ke dalam sistem?');">TAMBAH DATA</button>
+                    <button class="zi-btn success submitbtn" name="submit"><i class="prefix zi-icon-plus"></i>TAMBAH DATA</button>
                 </div>
             </form>
             <div class="extra-btn">
-                <button class="zi-btn add-buyer-btn" onclick="appendInput();">Tambah Belian</button>
-                <a href="../tambahpembeli/"><button class="zi-btn add-buyer-btn">Tambah Pembeli</button></a>
+                <a href="../tambahpembeli/"><button class="zi-btn"><i class="prefix zi-icon-plus"></i>Tambah Pembeli</button></a>
             </div>
         </div>
         <script>
@@ -85,11 +86,19 @@
                 if (appendIndex < 4) {
                     let elem = document.createElement('div');
                     elem.className = "zi-select-container";
+                    elem.id="select" + appendIndex;
                     let elem2 = document.createElement('select');
                     elem2.className = "zi-select";
                     elem2.id = "antik-selection";
                     elem2.name = "antik-selection" + appendIndex;
                     appendIndex++;
+                    if (appendIndex > 3) {
+                        let btnElem = document.getElementById('add-item-btn');
+                        btnElem.classList.add('disabled');
+                    } else {
+                        let btnElem = document.getElementById('remove-item-btn');
+                        btnElem.classList.remove('disabled');
+                    }
                     elem.appendChild(elem2);
                     let elem3 = document.createElement('i');
                     elem3.className = "arrow zi-icon-chevron-down";
@@ -101,6 +110,21 @@
                         elem2.appendChild(elem4);
                     }
                     document.getElementById('item-selection-sec').appendChild(elem);
+                }
+            }
+
+            function removeInput() {
+                if (appendIndex > 1) {
+                    let elem = document.getElementById('select' + (appendIndex - 1));
+                    elem.remove();
+                    appendIndex--;
+                    if (appendIndex < 2) {
+                        let btnElem = document.getElementById('remove-item-btn');
+                        btnElem.classList.add('disabled');
+                    } else {
+                        let btnElem = document.getElementById('add-item-btn');
+                        btnElem.classList.remove('disabled');
+                    }
                 }
             }
         </script>

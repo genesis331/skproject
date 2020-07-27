@@ -93,12 +93,12 @@
                     </div>
                 </div>
                 <div>
-                    <button class="zi-btn success submitbtn" onclick="return confirm('Tambah maklumat pembeli baru ke dalam sistem?');">TAMBAH DATA</button>
+                    <button class="zi-btn success submitbtn" onclick="return confirm('Tambah maklumat pembeli baru ke dalam sistem?');"><i class="prefix zi-icon-plus"></i>TAMBAH DATA</button>
                 </div>
             </form>
         </div>
         <div class="importbtn-sec">
-            atau <button class="zi-btn importbtn" onclick="getInputFile();">IMPORT DATA</button>
+            atau <button class="zi-btn importbtn" onclick="getInputFile();"><i class="prefix zi-icon-upload"></i>IMPORT DATA</button>
             <form method="POST" action="../paparimportpembeli/index.php" enctype="multipart/form-data">
                 <input class="file-input" id="file-input" type="file" name="datafile" onchange="this.form.submit();">
             </form>
