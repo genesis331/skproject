@@ -9,7 +9,7 @@
 
 .login-center h2, .login-center h3 {
     margin: 0;
-    padding: 1rem 0;
+    padding-top: 1rem;
 }
 
 .login-form {
@@ -31,4 +31,8 @@
 
 .register-sec a {
     text-decoration: underline;
+}
+
+.logo-img {
+    height: 6rem;
 }

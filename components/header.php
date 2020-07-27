@@ -8,18 +8,12 @@
         z-index: 9;
     }
 
-    .header-sec1 h3 {
+    .header-sec1 img {
+        height: 4.5rem;
+        padding: 0 3rem;
         position: relative;
         top: 50%;
         transform: translateY(-50%);
-        margin: 0;
-        padding: 0 3rem;
-        font-family: "Volte", sans-serif;
-        font-size: 1.4rem;
-    }
-
-    .header-sec1 h3 a {
-        text-decoration: none;
     }
 
     .header-sec2 {
@@ -124,11 +118,13 @@
             localStorage.setItem("antikDarkMode", false);
             document.getElementById('zi-toggle').classList.remove('checked');
             document.getElementsByTagName('body')[0].classList.remove('zi-dark-theme');
+            document.getElementById('logo-img').src="../assets/LOGO-BLACK.svg";
         } else {
             currentDarkModeStatus = true;
             localStorage.setItem("antikDarkMode", true);
             document.getElementById('zi-toggle').classList.add('checked');
             document.getElementsByTagName('body')[0].classList.add('zi-dark-theme');
+            document.getElementById('logo-img').src="../assets/LOGO-WHITE.svg";
         }
     }
 
@@ -157,12 +153,13 @@
             currentDarkModeStatus = darkModeCookie;
             document.getElementById('zi-toggle').classList.add('checked');
             document.getElementsByTagName('body')[0].classList.add('zi-dark-theme');
+            document.getElementById('logo-img').src="../assets/LOGO-WHITE.svg";
         }
     }
 </script>
 <div class="header-sec">
     <div class="header-sec1">
-        <h3><a href="../main/">Sistem Pengurusan Jualan Antik Antiqua</a></h3>
+        <a href="../main/"><img id="logo-img" src="../assets/LOGO-BLACK.svg" draggable="false"/></a>
     </div>
     <div class="header-sec2">
         <div class="customization-op-sec">

@@ -34,7 +34,8 @@
     <body class="zi-main">
         <div class="login-center">
             <h3>LOG MASUK</h3>
-            <h2>Sistem Pengurusan Jualan Antik Antiqua</h2>
+            <h2>Sistem Pengurusan Jualan Antik</h2>
+            <img class="logo-img" src="./assets/LOGO-BLACK.svg" draggable="false"/>
             <form class="login-form" method="POST">
                 <div class="zi-input-group prefix">
                     <span class="zi-label prefix">
@@ -51,7 +52,7 @@
                     <input class="zi-input" type="password" placeholder="Kata Laluan" name="katalaluanpekerja" required>
                 </div>
                 <div class="submitbtn-sec">
-                    <button class="zi-btn success">LOG MASUK</button>
+                    <button class="zi-btn success"><i class="prefix zi-icon-log-in"></i>LOG MASUK</button>
                 </div>
             </form>
             <div class="register-sec">
