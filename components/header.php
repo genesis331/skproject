@@ -1,4 +1,29 @@
+<?php
+    $bg = array(
+      '../assets/images/box-1995679_1920.jpg',
+      '../assets/images/journey-1130732_1920.jpg',
+      '../assets/images/living-room-581073_1920.jpg',
+      '../assets/images/old-1130731_1920.jpg',
+      '../assets/images/old-1130742_1920.jpg',
+      '../assets/images/old-1130743_1920.jpg',
+      '../assets/images/old-books-436498_1920.jpg'
+    );
+    $i = rand(0, count($bg)-1);
+    $selectedBg = "$bg[$i]";
+?>
 <style>
+    body::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+        background-image: url(<?php echo $selectedBg?>);
+        opacity: 0.5;
+    }
+
     .header-sec {
         height: 7rem;
         width: 100%;

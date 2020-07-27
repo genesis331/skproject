@@ -44,8 +44,8 @@
                             <td><?php echo $info['namapembeli'];?></td>
                             <td><?php echo $info['idpembeli'];?></td>
                             <td><?php echo $info['nokadicpembeli'];?></td>
-                            <th><?php echo $info['notelefonpembeli'];?></th>
-                            <th><?php echo $info['alamat'] . ", " . $info['bandar'] . ", " . $info['poskod'] . ", " . $info['negeri'];?></th>
+                            <td><?php echo $info['notelefonpembeli'];?></td>
+                            <td><?php echo $info['alamat'] . ", " . $info['bandar'] . ", " . $info['poskod'] . ", " . $info['negeri'];?></td>
                             <td>
                                 <a href="../functions/hapuspembeli.php?index=<?php echo $info['idpembeli'];?>">
                                     <button class="zi-btn action-btn" onclick="return confirm('Hapus maklumat pembeli dari sistem?');"><i class="prefix zi-icon-trash"></i>HAPUS</button>
