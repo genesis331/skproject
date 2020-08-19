@@ -48,11 +48,11 @@
                     </div>
                     <br>
                     <div class="zi-input-group prefix">
-                        <input class="zi-input" placeholder="Nombor Telefon Pekerja" name="notelefonpekerja" required type="tel" value="<?php echo $info['notelefonpekerja'];?>" minlength="10" maxlength="12">
+                        <input class="zi-input" placeholder="Nombor Telefon Pekerja" name="notelefonpekerja" required type="tel" value="<?php echo $info['notelefonpekerja'];?>" pattern="[0-9]+" oninvalid="this.setCustomValidity('Sila masukkan nombor telefon yang sah.');">
                     </div>
                     <br>
                     <div class="zi-input-group prefix">
-                        <input class="zi-input" placeholder="Kata Laluan Akaun Pekerja" name="katalaluan" required value="<?php echo $info['katalaluanpekerja'];?>" minlength="8" maxlength="30">
+                        <input class="zi-input" placeholder="Kata Laluan Akaun Pekerja" name="katalaluan" required value="<?php echo $info['katalaluanpekerja'];?>" pattern="[\w\d\s]{8,30}" oninvalid="this.setCustomValidity('Sila masukkan 8 hingga 30 patah perkataan.');">
                     </div>
                     <br><br>
                     <label>Jenis pekerja:</label>

@@ -20,7 +20,7 @@
                 if ($cmd) {
                     if($_GET['redirectStatus']) {
                         echo "<script>alert('Berjaya menambah maklumat pekerja baru ke dalam sistem dan akan log masuk ke dalam sistem secara automatik.')</script>";
-                        $_SESSION['idpekerja'] = $nama;
+                        $_SESSION['idpekerja'] = $tempid;
                         echo '<script>window.location.href = "../main";</script>';
                     } else {
                         echo "<script>alert('Berjaya menambah maklumat pekerja baru ke dalam sistem.')</script>";
@@ -60,11 +60,11 @@
                     </div>
                     <br>
                     <div class="zi-input-group">
-                        <input class="zi-input" placeholder="Nombor Telefon Pekerja" name="notelefonpekerja" required type="tel" minlength="10" maxlength="12">
+                        <input class="zi-input" placeholder="Nombor Telefon Pekerja" name="notelefonpekerja" required type="tel" pattern="[0-9]+" oninvalid="this.setCustomValidity('Sila masukkan nombor telefon yang sah.');">
                     </div>
                     <br>
                     <div class="zi-input-group">
-                        <input class="zi-input" placeholder="Kata Laluan (8 hingga 30 patah perkataan)" name="katalaluan" required minlength="8" maxlength="30">
+                        <input class="zi-input" placeholder="Kata Laluan (8 hingga 30 patah perkataan)" name="katalaluan" required pattern="[\w\d\s]{8,30}" oninvalid="this.setCustomValidity('Sila masukkan 8 hingga 30 patah perkataan.');">
                     </div>
                     <br><br>
                     <label>Jenis pekerja:</label>

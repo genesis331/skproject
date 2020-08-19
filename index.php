@@ -13,7 +13,6 @@
             echo "<script>alert('Nama pengguna atau kata laluan adalah salah.')</script>";
         } else {
             $_SESSION['idpekerja'] = $row['idpekerja'];
-            $admin = $_SESSION['idpekerja'];
             header("Location: ./main");
         }
     }

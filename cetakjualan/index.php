@@ -2,6 +2,7 @@
     session_start();
     require('../functions/dbcon.php');
     require("../functions/authcheck.php");
+    error_reporting(0);
 ?>
 <!DOCTYPE html>
 <html>
