@@ -60,11 +60,11 @@
                     </div>
                     <br>
                     <div class="zi-input-group">
-                        <input class="zi-input" placeholder="Nombor Telefon Pekerja" name="notelefonpekerja" required type="tel" pattern="[0-9]+" oninvalid="this.setCustomValidity('Sila masukkan nombor telefon yang sah.');">
+                        <input class="zi-input" placeholder="Nombor Telefon Pekerja" name="notelefonpekerja" required type="tel" pattern="[0-9]{1,12}" oninvalid="this.setCustomValidity('Sila masukkan nombor telefon yang sah.');" oninput="this.setCustomValidity('');">
                     </div>
                     <br>
                     <div class="zi-input-group">
-                        <input class="zi-input" placeholder="Kata Laluan (8 hingga 30 patah perkataan)" name="katalaluan" required pattern="[\w\d\s]{8,30}" oninvalid="this.setCustomValidity('Sila masukkan 8 hingga 30 patah perkataan.');">
+                        <input class="zi-input" placeholder="Kata Laluan (8 hingga 30 patah perkataan)" name="katalaluan" required pattern="[\w\d\s]{8,30}" oninvalid="this.setCustomValidity('Sila masukkan 8 hingga 30 patah perkataan.');" oninput="this.setCustomValidity('');">
                     </div>
                     <br><br>
                     <label>Jenis pekerja:</label>

@@ -55,11 +55,11 @@
                     </div>
                     <br>
                     <div class="zi-input-group">
-                        <input class="zi-input" placeholder="No Kad IC Pembeli" name="nokadic" required pattern="[0-9]{12}" oninvalid="this.setCustomValidity('Sila masukkan nombor IC yang sah.');">
+                        <input class="zi-input" placeholder="No Kad IC Pembeli" name="nokadic" required pattern="[0-9]{12}" oninvalid="this.setCustomValidity('Sila masukkan nombor IC yang sah.');" oninput="this.setCustomValidity('');">
                     </div>
                     <br>
                     <div class="zi-input-group">
-                        <input class="zi-input" placeholder="No Telefon Pembeli" name="notelefon" required pattern="[0-9]+" oninvalid="this.setCustomValidity('Sila masukkan nombor telefon yang sah.');">
+                        <input class="zi-input" placeholder="No Telefon Pembeli" name="notelefon" required pattern="[0-9]{1,12}" oninvalid="this.setCustomValidity('Sila masukkan nombor telefon yang sah.');" oninput="this.setCustomValidity('');">
                     </div>
                     <br>
                     <div class="zi-input-group">
@@ -89,7 +89,7 @@
                         <i class="arrow zi-icon-chevron-down"></i>
                     </div>
                     <div class="zi-input-group address-input-group">
-                        <input class="zi-input address-input" placeholder="Poskod" name="poskod" required pattern="[0-9]{5}" oninvalid="this.setCustomValidity('Sila masukkan poskod yang sah.');">
+                        <input class="zi-input address-input" placeholder="Poskod" name="poskod" required pattern="[0-9]{5}" oninvalid="this.setCustomValidity('Sila masukkan poskod yang sah.');" oninput="this.setCustomValidity('');">
                     </div>
                 </div>
                 <div>

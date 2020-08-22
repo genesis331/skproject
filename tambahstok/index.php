@@ -54,7 +54,7 @@
                     </div>
                     <br>
                     <div class="zi-input-group">
-                        <input class="zi-input" placeholder="Harga Antik" name="hargaantik" required pattern="(\d{2,})([\.])(\d{2})" oninvalid="this.setCustomValidity('Sila masukkan harga yang sah.');">
+                        <input class="zi-input" placeholder="Harga Antik" name="hargaantik" required pattern="(\d{2,})([\.])(\d{2})" oninvalid="this.setCustomValidity('Sila masukkan harga yang sah.');" oninput="this.setCustomValidity('');">
                     </div>
                     <br>
                     <div class="zi-input-group">
