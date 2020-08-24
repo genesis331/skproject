@@ -109,7 +109,7 @@
                                         elem6 = document.createElement('td');
                                         for (let v = 0; v <= data4.length - 1; v++) {
                                             if (data4[v]['idjualan'] == data[i]['idjualan']) {
-                                                for (let vi = 0; vi <= data4.length - 1; vi++) {
+                                                for (let vi = 0; vi <= data3.length - 1; vi++) {
                                                     if (data4[v]['idantik'] == data3[vi]['idantik']) {
                                                         outputItems += data3[vi]['namaantik'] + "<br/>";
                                                     }
