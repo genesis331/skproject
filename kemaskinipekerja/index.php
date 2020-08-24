@@ -64,6 +64,9 @@
                         <?php }?>
                     </tbody>
                 </table>
+                <div class="extra-btn">
+                    <a href="../tambahpekerja/"><button class="zi-btn add-buyer-btn"><i class="prefix zi-icon-plus"></i>Tambah Pekerja</button></a>
+                </div>
             </div>
         </div>
     </body>
