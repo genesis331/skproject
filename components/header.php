@@ -144,12 +144,22 @@
             document.getElementById('zi-toggle').classList.remove('checked');
             document.getElementsByTagName('body')[0].classList.remove('zi-dark-theme');
             document.getElementById('logo-img').src="../assets/LOGO-BLACK.svg";
+            var x = document.getElementsByClassName('zi-input');
+            var i;
+            for (i = 0; i < x.length; i++) {
+                x[i].className = 'zi-input';
+            }
         } else {
             currentDarkModeStatus = true;
             localStorage.setItem("antikDarkMode", true);
             document.getElementById('zi-toggle').classList.add('checked');
             document.getElementsByTagName('body')[0].classList.add('zi-dark-theme');
             document.getElementById('logo-img').src="../assets/LOGO-WHITE.svg";
+            var x = document.getElementsByClassName('zi-input');
+            var i;
+            for (i = 0; i < x.length; i++) {
+                x[i].className += ' zi-input-dark';
+            }
         }
     }
 
@@ -179,6 +189,11 @@
             document.getElementById('zi-toggle').classList.add('checked');
             document.getElementsByTagName('body')[0].classList.add('zi-dark-theme');
             document.getElementById('logo-img').src="../assets/LOGO-WHITE.svg";
+            var x = document.getElementsByClassName('zi-input');
+            var i;
+            for (i = 0; i < x.length; i++) {
+                x[i].className += ' zi-input-dark';
+            }
         }
     }
 </script>
