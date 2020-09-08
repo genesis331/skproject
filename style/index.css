@@ -36,3 +36,7 @@
 .logo-img {
     height: 6rem;
 }
+
+.zi-input::placeholder {
+    color: white !important;
+}
