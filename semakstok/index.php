@@ -44,7 +44,7 @@
                             <td><?php echo $info['namaantik'];?></td>
                             <td><?php echo $info['idantik'];?></td>
                             <td><?php echo 'RM '.$info['hargaantik'];?></td>
-                            <th><?php echo $info['penjelasanantik'];?></th>
+                            <td><?php echo $info['penjelasanantik'];?></td>
                             <td>
                                 <a href="../kemaskinistokfun/index.php?index=<?php echo $info['idantik'];?>">
                                     <button class="zi-btn action-btn"><i class="prefix zi-icon-edit-2"></i>KEMASKINI</button>
