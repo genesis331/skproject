@@ -42,7 +42,7 @@
                 <div>
                     <div id="item-selection-sec">
                         <div class="zi-select-container" id="select0">
-                            <select class="zi-select" id="antik-selection" name="antik-selection0">
+                            <select class="zi-select select-dropdown" id="antik-selection" name="antik-selection0" onchange="updateOptions();">
                                 <?php
                                     $data = mysqli_query($dbcon,"SELECT * FROM antik");
                                     while ($info = mysqli_fetch_array($data)) {
@@ -82,17 +82,21 @@
         </div>
         <script>
             let appendIndex = 1;
+            let dropdownElems = document.getElementsByClassName('select-dropdown');
+            let selectedIndices = [];
+
             function appendInput() {
-                if (appendIndex < 4) {
+                if (appendIndex < 4 && appendIndex < dropdownElems[0].options.length) {
                     let elem = document.createElement('div');
                     elem.className = "zi-select-container";
                     elem.id="select" + appendIndex;
                     let elem2 = document.createElement('select');
-                    elem2.className = "zi-select";
+                    elem2.className = "zi-select select-dropdown";
                     elem2.id = "antik-selection";
                     elem2.name = "antik-selection" + appendIndex;
+                    elem2.setAttribute("onchange","updateOptions();");
                     appendIndex++;
-                    if (appendIndex > 3) {
+                    if (appendIndex > 3 || appendIndex > dropdownElems[0].options.length - 1) {
                         let btnElem = document.getElementById('add-item-btn');
                         btnElem.classList.add('disabled');
                     } else {
@@ -109,7 +113,14 @@
                         elem4.innerHTML = document.getElementById('antik-selection').options[i].text;
                         elem2.appendChild(elem4);
                     }
+                    for (let ii = 0; ii <= dropdownElems[0].options.length; ii++) {
+                        if (!selectedIndices.includes(ii)) {
+                            elem2.options.selectedIndex = ii;
+                            break;
+                        }
+                    }
                     document.getElementById('item-selection-sec').appendChild(elem);
+                    updateOptions();
                 }
             }
 
@@ -125,8 +136,28 @@
                         let btnElem = document.getElementById('add-item-btn');
                         btnElem.classList.remove('disabled');
                     }
+                    updateOptions();
                 }
             }
+
+            function updateOptions() {
+                selectedIndices = [];
+                for (let i = 0; i <= dropdownElems.length - 1; i++) {
+                    for (let a = 0; a <= dropdownElems[i].options.length - 1; a++) {
+                        dropdownElems[i].options[a].disabled = false;
+                    } 
+                    selectedIndices.push(dropdownElems[i].options.selectedIndex);
+                }
+                for (let ii = 0; ii <= dropdownElems.length - 1; ii++) {
+                    for (let b = 0; b <= selectedIndices.length - 1; b++) {
+                        if (b !== ii) {
+                            dropdownElems[ii].options[selectedIndices[b]].disabled = true;
+                        }
+                    }
+                }
+            }
+
+            window.onload = function(){updateOptions();}
         </script>
     </body>
 </html>
