@@ -108,7 +108,7 @@ CREATE TABLE `pekerja` (
 --
 
 INSERT INTO `pekerja` (`idpekerja`, `namapekerja`, `notelefonpekerja`, `katalaluanpekerja`, `status`) VALUES
-('W50115', 'CHEAH ZIXU', '0182764331', 'db265daa1b', 1);
+('W50115', 'CHEAH ZIXU', '0182764331', '1234567', 1);
 
 -- --------------------------------------------------------
 
